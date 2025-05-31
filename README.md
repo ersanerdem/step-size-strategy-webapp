@@ -2,7 +2,7 @@
 
 📘 This folder contains the final version of my Master's thesis titled:
 
-**"Web Application for Step Size Strategies in Numerical Methods"**
+**"Web Application for Step Size Strategies"**
 
 The thesis focuses on building an interactive Django-based web application that allows users to visualize the behavior of different step size methods in solving ordinary differential equations.
 
