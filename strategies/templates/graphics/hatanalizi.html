@@ -1,0 +1,118 @@
+{% load staticfiles %}
+{% include "graphics/includes/header.html" %}
+
+<div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8 ">
+
+
+    <article>
+    <div class="entry-content">
+
+    <h3 class="titles"> Step Size Strategy Based on Error Analysis</h3>
+
+<hr/><br/>
+         <div >
+           <p class="articles"> Consider the Cauchy problem
+
+             \begin{equation*}
+      x'(t)=f(t,x(t)),\ x(t_{0})=x_{0}
+     \end{equation*}
+
+on $D=\{(t,x): |t-t_{0}|\leq a, |x-x_{0}|\leq b \}$ where $f$ is a differentiable function. Local error in $ith$ step for the Cauchy problem is
+             \begin{equation*}
+
+            |LE_{i}|:=|y_{i}-z(t_{i})|=|\dfrac{1}{2!}z''(\tau)h_{i}^{2}|,\ \tau\in[t_{i-1},t_{i})
+
+             \end{equation*}
+
+
+<p class="articles">
+    If the existence and uniqueness of the solution of the Cauchy problem are known, the step size in the $ith$ step has been obtained as follows
+</p>
+
+
+
+
+<ul>
+
+             \begin{equation*}
+   h_{i}= \sqrt{ \dfrac{2\delta_{L}}{M_{t_{i}}}}
+\end{equation*}
+
+
+</ul>
+
+<p class="articles">such as local error is smaller than the desired error level $\delta_{L}$ in each step of the integration.</p>
+
+           <ul><li>
+               <p class="articles">$\delta_{L}$; the desired error level
+               </li>
+             <li><p class="articles">$y_{i}$; the numerical solution obtained in  $ith$ step </p></li>
+             <li><p class="articles">$z(t)$; the solution of Cauchy problem $ z'(t)=f(t,z(t)),\ z(t_{i-1})=y_{i-1},\ t\in[t_{i-1},t_{i})$</p> </li>
+              <li><p class="articles">$\displaystyle\max_{\tau\in[t_{i-1},t_{i})}|z''(\tau)|\leq M_{t_{i}}$</p></li>
+             </ul>
+
+
+
+<p class="articles"><cite><a>Çelik Kızılkan 2004 </a>, &nbsp;  <a>Çelik Kızılkan and Aydın 2005 </a></cite></p>
+</p>
+        </div>
+
+
+
+
+
+
+
+    </div><!-- End simulation zone -->
+
+
+
+
+
+    </article>
+
+    </div>
+    <br/>
+        {% include "graphics/includes/side.html" %}
+    </div>
+</div> <!-- class="container" -->
+   <br/>
+{% include "graphics/includes/footer.html" %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

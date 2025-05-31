@@ -1,0 +1,77 @@
+{% load staticfiles %}
+{% include "graphics/includes/header.html" %}
+
+<div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8 ">
+
+
+    <article>
+    <div class="entry-content">
+
+    <h3 class="titles"> Step Size Strategy Based on Picard Theorem</h3>
+
+<hr/><br/>
+         <div >
+           <p class="articles"> Consider the Cauchy problem
+
+             \begin{equation*}
+      x'(t)=f(t,x(t)),\ x(t_{0})=x_{0}
+     \end{equation*}
+
+on $D=\{(t,x): |t-t_{0}|\leq a, |x-x_{0}|\leq b \}$ where $f$ is a differentiable function. If the existence and uniqueness of the solution of the Cauchy problem are known, the step size in the $ith$ step has been obtained as follows
+
+
+
+
+
+<ul>
+
+             \begin{equation*}
+   h_{i}= \min\{   a,\frac{b}{M_{i}} \}
+\end{equation*}
+
+
+</ul>
+
+<p class="articles">by applying successively Picard Theorem.</p>
+
+           <ul>
+
+             <li><p class="articles">$y_{i}$; the numerical solution obtained in  $ith$ step </p></li>
+             <li><p class="articles">$D_{i}=\{(t,y): |t-t_{i}|\leq a, |y-y_{i}|\leq b\}$ </p></li>
+              <li><p class="articles">$\displaystyle\max_{(\zeta,\xi)\in D_{i}}|f(\zeta,\xi)|\leq M_{i}$</p></li>
+             </ul>
+
+
+
+<p class="articles"><cite><a>Çelik Kızılkan 2004 </a></p>
+</p>
+        </div>
+
+
+
+
+
+
+
+    </div><!-- End simulation zone -->
+
+
+
+
+
+    </article>
+
+    </div>
+    <br/>
+        {% include "graphics/includes/side.html" %}
+    </div>
+</div> <!-- class="container" -->
+   <br/>
+{% include "graphics/includes/footer.html" %}
+
+
+
+
+

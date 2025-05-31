@@ -1,0 +1,81 @@
+
+{% load staticfiles %}
+{% include "graphics/includes/header.html" %}
+
+<div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8 ">
+
+
+    <article>
+    <div class="entry-content">
+
+    <h3 class="titles"> Step Size Strategy for The Numerical Integration of Systems of Linear Differential Equations</h3><hr/>
+      <br/>
+        <div class="math">
+           <p  class="articles"> Consider the Cauchy problem
+              \begin{equation*}
+            X'(t)=AX(t),\ X(t_{0})=X_{0}
+            \end{equation*}
+
+ on $D=\{(t,x): |t-t_{0}|\leq a, |x_{j}-x_{j0}|\leq b_{j} \}$. Local error in $ith$ step for the Cauchy problem is
+
+            \begin{equation*}
+
+            |LE_{i}|:=|Y_{i}-Z(t_{i})|=|\dfrac{1}{2!}Z''(\tau)h_{i}^{2}|,\ \tau_{i}\in[t_{i-1},t_{i})
+
+            \end{equation*}
+
+
+ The step size in the $ith$ step has been obtained as follows
+
+
+             \begin{equation*}
+  h_{i}=\dfrac{1}{\alpha\sqrt[4]{N^{5}}}\left(\dfrac{2\delta_{L}}{\beta_{i-1}}\right)^{\frac{1}{2}}
+\end{equation*}
+
+
+such as local error is smaller than the desired error level $\delta_{L}$ in each step of the integration.
+
+
+
+
+            <ul><li>
+              <p class="articles">  $\delta_{L}$; the desired error level</p>
+               </li>
+            <li><p class="articles"> $N$; dimension of $A=(a_{ij})\in\mathbb{R}^{NxN}$ matrix</p></li>
+             <li><p class="articles"> $Y_{i}$; the numerical solution obtained in  $ith$ step</p> </li>
+                <li><p class="articles"> $Z(t)$; the solution of $Z'(t)=AZ(t),\ Z(t_{i-1})=Y_{i-1},\ \tau_{i}\in[t_{i-1},t_{i})$</p></li>
+                <li> <p class="articles"> $\displaystyle\alpha=\max_{1\leq i,j \leq N}|a_{ij}|$</p></li>
+            <li><p class="articles">  $\displaystyle\max_{1\leq i,j \leq N}(\sup_{\tau_{i}\in[t_{i-1},t_{i})}|z_{j}(\tau_{i})|)\leq\beta_{i-1}$</p></li>
+
+
+
+
+
+
+            </ul>
+
+
+
+         <p class="articles">    <cite><a>Çelik Kızılkan 2009 </a>,&nbsp;     <a>Çelik Kızılkan and Aydın 2011 </a></cite></p>
+            </p><br/><br/>
+        </div>
+
+
+
+    </div><!-- End simulation zone -->
+
+
+
+
+
+    </article>
+
+    </div>
+    <br/>
+        {% include "graphics/includes/side.html" %}
+    </div>
+</div> <!-- class="container" -->
+{% include "graphics/includes/footer.html" %}
+

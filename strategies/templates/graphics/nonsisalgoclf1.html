@@ -1,0 +1,327 @@
+{% load staticfiles %}
+{% include "graphics/includes/header.html" %}
+<style>
+
+
+ .matrix {
+        position: relative;
+    }
+    .matrix:before, .matrix:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        border: 1px solid #000;
+        width: 8px;
+        height: 100%;
+    }
+    .matrix:before {
+        left: -6px;
+        border-right: 0;
+    }
+    .matrix:after {
+        right: -6px;
+        border-left: 0;
+    }
+</style>
+<div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8">
+
+
+    <div class="entry-content">
+
+    <h3 class="titles"> Step Size Strategy for The Numerical Integration of Systems of Non-Linear Differential Equations</h3>
+<hr/>
+
+
+    <div id="graphiczone">
+          <h3 class="titles">Input</h3>
+    </div>
+
+    <div class="well">
+        <center>
+    <form action="#graphiczone" method="post" class="form-inline">
+    {% csrf_token %}
+    <div class="form-group has-success">
+
+       <tr>
+
+
+    <td><span class="math">$h^{*} = $</span><input type="text" name=hp size="8"  maxlength="12" class="form-control"/></td>
+    <td><span class="math">$t_{0} = $</span><input type="text" name=t0 size="5"   maxlength="6" class="form-control"/></td>
+   <td><span class="math">$a = $</span><input type="text" name=a size="4"   maxlength="6" class="form-control"/></td>
+   <td><span class="math">$b = $</span><input type="text" name=b size="4"  maxlength="6" class="form-control"/></td>
+    <td><span class="math">$\delta_{L}= $</span><input type="text" name=d size="4"  maxlength="6" class="form-control"/></td>
+ <br/>
+    <br/>
+ <tr><td><span class="math">$X=\Big[$</span></td> <td><input type="text" name="dv1" size="1" placeholder="x" maxlength="6" class="form-control"/></td> <td><input type="text" name="dv2" size="1" placeholder="y" maxlength="6" class="form-control"/></td> <td><span class="math">$\Big]^{T}$</span></td></tr>
+
+
+   </tr>
+
+ <br/><br/>
+
+
+<div class="col-xs-4 col-sm-4 col-md-4">
+
+
+      <table >
+
+		<tbody>
+		<tr>
+
+			<td> <span class="math">$A=$</span>&emsp;</td>
+			<td>  <table class="matrix">
+
+		<tbody>
+		<tr>
+
+			<td><input required type="text"  name="a11" size="1"  maxlength="6" class="form-control"/></td>
+			<td><input required type="text"  name="a12" size="1"  maxlength="6" class="form-control"/></td>
+
+		</tr>
+		<tr>
+		<td><input required type="text"  name="a21" size="1"  maxlength="6" class="form-control"/></td>
+			<td><input required type="text" name="a22" size="1" maxlength="6" class="form-control"/></td>
+
+		</tr>
+
+		</tbody>
+	</table>    </td>
+
+		</tr>
+
+
+		</tbody>
+	</table>
+
+
+
+</div>
+<div class="col-xs-4 col-sm-4 col-md-4">
+ <table>
+
+     <tbody>
+         <tr>
+             <td> <span class="math">$\varphi(t,X)=$</span>&emsp;</td>
+
+             <td>
+
+                 <table class="matrix">
+
+		<tbody>
+		<tr>
+
+			<td><input required type="text" name="fi0" size="3"   maxlength="6" class="form-control"/></td>
+
+		</tr>
+		<tr>
+		<td><input required type="text" name="fi1" size="3"   maxlength="6" class="form-control"/></td>
+
+		</tr>
+
+		</tbody>
+	</table>
+             </td>
+
+         </tr>
+
+
+     </tbody>
+ </table>
+
+
+</div>
+
+<div class="col-xs-4 col-sm-4 col-md-4">
+ <table>
+
+     <tbody>
+         <tr>
+             <td> <span class="math">$X_{0}=$</span>&emsp;</td>
+
+             <td>
+
+                 <table class="matrix">
+
+		<tbody>
+		<tr>
+
+			<td><input required type="text" name="x11" size="1"  maxlength="6" class="form-control"/></td>
+
+		</tr>
+		<tr>
+		<td><input required type="text" name="x21" size="1"   maxlength="6" class="form-control"/></td>
+
+		</tr>
+
+		</tbody>
+	</table>
+             </td>
+
+         </tr>
+
+
+     </tbody>
+ </table>
+
+
+</div>
+
+
+
+
+
+ <br/>
+ <br/>
+ <br/>
+  <br/>
+        {% if  request.user.is_authenticated %}
+          <input type="submit" value="Calculate" class="btn btn-success btn-sm">
+
+         <a href="../static/excelfiles/nonsisalgocl1.xls?={{ mycache }}" target="_blank" download><button type="button" class="btn btn-success btn-sm" >Output file <i class="fa fa-file-image-o" aria-hidden="true"></i> &nbsp; <i class="fa fa-download" aria-hidden="true"></i></button></a>
+       {%else%}
+        <input type="submit" value="Calculate" class="btn btn-success btn-sm">
+
+        {% endif %}
+     </div>
+
+
+
+
+
+    </form>
+
+</center>
+
+<br/>
+    <p align="center"><em> Step Size Strategy for The Numerical Integration of Systems of Non-Linear Differential Equations</em></p>
+
+  <br/>
+
+
+</div>
+
+<table class="cell-border" id="example"class="stripe" class="display nowrap" width="100%">
+        <thead>
+            <tr>
+                <th scope="col" style="border: 1px solid black; background-color:#ecf0f1;" ><p align="center">$i$</p></th>
+                <th scope="col" style="border: 1px solid black; background-color:#ecf0f1;"><p align="center">$h_{i}$</p></th>
+                <th scope="col" style="border: 1px solid black; background-color:#ecf0f1;"><p align="center">$t_{i}$</p></th>
+                <th scope="col" style="border: 1px solid black; background-color:#ecf0f1;"><p align="center">$||X_{i}||$</p></th>
+                <th scope="col" style="border: 1px solid black; background-color:#ecf0f1;"><p align="center">$x_{i}$</p></th>
+                <th scope="col" style="border: 1px solid black; background-color:#ecf0f1;"><p align="center">$y_{i}$</p></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in result %}
+            <tr class="table-success">
+                <td scope="row">{{i.ite}}</td>
+                <td>{{i.hi}}</td>
+                <td>{{i.ti}}</td>
+                <td>{{i.Xti}}</td>
+                <td>{{i.x1ti}}</td>
+                <td>{{i.x2ti}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+     </table>
+<script>$(document).ready(function() {
+    var table = $('#example').DataTable(  {
+        rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+
+        "bFilter": false,
+        "scrollY": 400,
+        "scrollX": true,
+    } );
+} );
+</script>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+{% include "graphics/includes/side.html" %}
+
+</div>
+
+
+    </div>
+</div> <!-- class="container" -->
+
+{% include "graphics/includes/footer.html" %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

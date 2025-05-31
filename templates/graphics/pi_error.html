@@ -1,0 +1,102 @@
+{% load staticfiles %}
+{% include "graphics/includes/header.html" %}
+
+<div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8 ">
+
+
+    <article>
+    <div class="entry-content">
+
+    <h3 class="titles"> Step Size Strategy Based on Picard Theorem and Error Analysis</h3>
+
+<hr/><br/>
+         <div >
+           <p class="articles"> Consider the Cauchy problem
+
+             \begin{equation}
+      x'(t)=f(t,x(t)),\ x(t_{0})=x_{0}
+     \end{equation}
+
+on $D=\{(t,x): |t-t_{0}|\leq a, |x-x_{0}|\leq b \}$ where $f$ is a differentiable function. If the existence of the solution of the Cauchy problem is unknown; the step size in the $ith$ step has been obtained as follows
+<ul>
+
+             \begin{equation*}
+   h_{i}= \min\{a, \frac{b_{0i-1}}{M_{i}}\}
+\end{equation*}
+
+</ul>
+
+           <ul>
+             <li><p class="articles">$y_{i}$; the numerical solution obtained in  $ith$ step </p></li>
+             <li><p class="articles">$z(t)$; the solution of Cauchy problem $ z'(t)=f(t,z(t)),\ z(t_{i-1})=y_{i-1},\ t\in[t_{i-1},t_{i})$</p> </li>
+               <li><p class="articles">$b_{i-1}$ is the upper bound of $|z-y_{i-1}|$</p></li>
+              <li><p class="articles">$b_{0i-1}=\min\{b_{0i-2}, b_{i-1}\}$</p></li>
+               <li><p class="articles"></p>$D_{i-1}=\{(t,z): |t-t_{i-1}|\leq a, |z-y_{i-1}|\leq b_{0i-1} \}$</li>
+              <li><p class="articles">$\displaystyle\max_{(t,z)\in D_{i-1}}|f(t,z)|\leq M_{i}$</p></li>
+             </ul>
+
+
+
+<p class="articles"><cite><a>Çelik Kızılkan 2004 </a>, &nbsp;  <a>Çelik Kızılkan and Aydın 2011 </a></cite></p>
+</p>
+        </div>
+
+
+
+
+
+
+
+    </div><!-- End simulation zone -->
+
+
+
+
+
+    </article>
+
+    </div>
+    <br/>
+        {% include "graphics/includes/side.html" %}
+    </div>
+</div> <!-- class="container" -->
+   <br/>
+{% include "graphics/includes/footer.html" %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

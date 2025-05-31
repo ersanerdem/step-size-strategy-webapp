@@ -1,0 +1,206 @@
+{% load staticfiles %}
+{% include "graphics/includes/header.html" %}
+
+<div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8 ">
+
+
+    <article>
+    <div class="entry-content">
+
+    <h3 class="titles"> Step Size Strategy Based on Picard Theorem</h3>
+
+<hr/><br/>
+         <div >
+           <p class="articles"> Consider the Cauchy problem
+
+             \begin{equation*}
+      x'(t)=f(t,x(t)),\ x(t_{0})=x_{0}
+     \end{equation*}
+
+on $D=\{(t,x): |t-t_{0}|\leq a, |x-x_{0}|\leq b \}$ where $f$ is a differentiable function. If the existence and uniqueness of the solution of the Cauchy problem are known, the step size in the $ith$ step has been obtained as follows
+
+
+
+
+
+<ul>
+
+             \begin{equation*}
+   h_{i}= \min\{   a,\frac{b}{M_{i}} \}
+\end{equation*}
+
+
+</ul>
+
+<p class="articles">by applying successively Picard Theorem.</p>
+
+           <ul>
+
+             <li><p class="articles">$y_{i}$; the numerical solution obtained in  $ith$ step </p></li>
+             <li><p class="articles">$D_{i}=\{(t,y): |t-t_{i}|\leq a, |y-y_{i}|\leq b\}$ </p></li>
+              <li><p class="articles">$\displaystyle\max_{(\zeta,\xi)\in D_{i}}|f(\zeta,\xi)|\leq M_{i}$</p></li>
+             </ul>
+
+
+
+<p class="articles"><cite><a>Çelik Kızılkan 2004 </a></p>
+</p>
+        </div>
+
+
+
+
+
+    </div><!-- End simulation zone -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </article>
+
+    </div>
+    <br/>
+     <div class="col-xs-12 col-sm-6 col-md-4 " id="sidebar" style="word-break: keep-all;font-family:'Times New Roman', Times, serif;">
+<aside>
+
+
+
+<section class="well well-sm">
+
+ <div align="center">
+<li class="list-group-item"><h4 class="titles"><i class="fa fa-file-pdf-o" style="font-size:24px"></i><span class="icon-label">Articles</span></h4>
+      <ul class="list-group" id="links">
+
+
+        <li class="list-group-item">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0096300306006217" target="_blank">
+                 A new variable step size algorithm for Cauchy problem
+            </a>
+
+        </li>
+
+        <li class="list-group-item">
+            <a href="http://dergipark.gov.tr/download/article-file/214950" target="_blank">
+                 Step Size Strategies Based on Error Analysis
+            </a>
+        </li>
+
+
+         <li class="list-group-item">
+            <a href="https://www.researchgate.net/publication/260391200_Step_Size_Strategies_Based_On_Error_Analysis_For_The_Linear_Systems" target="_blank">
+                 Step Size Strategy for The Numerical Integration of Systems of The Linear Systems
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://www.sciencedirect.com/science/article/pii/S0377042711003682" target="_blank">
+                 Step Size Strategy for The Numerical Integration of Systems of Differential Equations
+            </a>
+        </li>
+          <li class="list-group-item">
+            <a href="http://fbd.beun.edu.tr/index.php/zkufbd/article/viewFile/394/192" target="_blank">
+                Analysis with Variable Step Size Strategy of Some SIR Epidemic Models
+            </a>
+        </li>
+           <li class="list-group-item">
+            <a href="http://dergipark.gov.tr/download/article-file/436436" target="_blank">
+               The Analysis of The Effect of The Norms in The Step Size Selection for The Numerical Integration
+            </a>
+        </li>
+
+
+
+        </ul>
+        </li>
+   </li>{% for  name, category in  iletisims %}
+            <li class="list-group-item">
+            <h4 class="titles"><i class="fa fa-tags fa-lg"></i><span class="icon-label">{{ name }}</span></h4>
+                <ul class="list-group"  >
+                 {% for title, summary in category %}
+                    <li class="list-group-item">
+                            {{ title }}<br/>
+                            {{summary }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+         {% endfor %}
+
+
+   </li>{% for  name, category in  methods %}
+            <li class="list-group-item">
+            <h4 class="titles"><i class="fa fa-tags fa-lg"></i><span class="icon-label">{{ name }}</span></h4>
+                <ul class="list-group" id="articles" >
+                 {% for  href, title, summary in category %}
+                    <li class="list-group-item">
+                        <a href="http://127.0.0.1:8000/{{ href }}/">
+                            {{ title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+         {% endfor %}
+
+
+    <li class="list-group-item"><h4 class="titles"><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="https://www.djangoproject.com/" target="_blank">
+                Django
+            </a>
+        </li>
+
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python
+            </a>
+        </li>
+
+        <li class="list-group-item">
+            <a href="http://matplotlib.org/" target="_blank">
+                Matplotlib
+            </a>
+        </li>
+
+        <li class="list-group-item">
+            <a href="http://www.numpy.org/" target="_blank">
+                NumPy
+            </a>
+        </li>
+           <li class="list-group-item">
+            <a href="https://www.scipy.org/" target="_blank">
+                SciPy
+            </a>
+        </li>
+
+      </ul>
+    </li>
+
+
+      </ul>
+    </li>
+    </ul>
+    </div>
+</section>
+</aside>
+    </div>
+</div> <!-- class="container" -->
+   <br/>
+{% include "graphics/includes/footer.html" %}
+
+
+
+
+

@@ -1,0 +1,42 @@
+{% load staticfiles %}
+{% include "graphics/includes/header.html" %}
+
+
+
+<!-- Banner -->
+<style>
+      #banner{
+        background-image:url("{% static 'graphics/images/b4.jpg' %}");
+    }
+</style>
+
+
+<div id="banner"  >
+    <div class="container"   >
+        <div class="copy" >
+            <h1>Step Size Strategies</h1><br/>
+                <p class="intro">Ersan ERDEM, Gülnur ÇELİK KIZILKAN, Ali Osman ÇIBIKDİKEN</p>
+        </div>
+    </div>
+</div><!-- End Banner -->
+
+<div class="container">
+    <div class="row">
+        <div class=" col-md-8 ">
+    <hr/>
+
+             <p style="text-indent: 20px;" class="articles">This interactive web interface has been designed with Django web framework of Python programming language and it's scientific libraries(Numpy, Matplotlib, Sympy). This interactive web interface provides the online use of step size strategies to obtain the numerical solutions of Cauchy problems.</p>
+
+
+
+
+
+      </div>
+
+   {% include "graphics/includes/side.html" %}
+
+    </div>
+</div> <!-- class="container" -->
+
+{% include "graphics/includes/footer.html" %}
+

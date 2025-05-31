@@ -1,0 +1,243 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Step Size Strategies</title>
+    <!-- Using the latest rendering mode for IE -->
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  MathML: {
+    extensions: ["content-mathml.js"]
+  }
+});
+</script>
+   <meta http-equiv="Content-Language" content="en">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <link href="{% static 'graphics/images/designevo_NbN_2.ico' %}" rel="icon">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110785169-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110785169-1');
+</script>
+<script type="text/javascript">
+    var analyticsFileTypes = [''];
+    var analyticsSnippet = 'disabled';
+    var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+     var siteadresi = 'https://stepsizestrategies.pythonanywhere.com';
+   </script>
+
+
+  <!-- SEO -->
+<meta name="yandex-verification" content="fa2718ea49dcf9ff" />
+<link rel="canonical" href="https://stepsizestrategies.pythonanywhere.com" />
+
+<meta name="robot" content="follow, index" />
+<meta name="robot" content="all" />
+<meta name="googlebot" content="follow, index" />
+<meta name="google-site-verification" content="AIzaSyBPgfJWkowvtgS7Sd-1ivXgj85DeAJIuZU" />
+<meta name="author" content="Ersan Erdem" />
+<meta name="twitter:description" content="This interactive web interface has been designed with Django web framework of Python programming language and it's scientificlibraries(Numpy,Matplotlib,Scipy,Sympy). This web interface provides the online use of step size strategies to obtain the numerical solutions of Cauchy problems. ">
+<meta name="keywords" content="ersan erdem, python, django, numpy, matplotlib, sympy, scipy, error analysis, local error, picard theorem, matrix, delta,  existence,interactive web interface,  uniqueness , numeric integration, numeric solutions, variable step size, step size strategies, differential equations, cauchy problems, function, variable,linear differential equations systems, nonlinear differential equations systems"/>
+<meta name="abstract" content="This interactive web interface has been designed with Django web framework of Python programming language and it's scientificlibraries(Numpy,Matplotlib,Scipy,Sympy). This web interface provides the online use of step size strategies to obtain the numerical solutions of Cauchy problems. "/>
+<meta property="og:site_name" content="Step Size Strategies" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Step Size Strategies"/>
+<meta property="og:description" content="Step Size Strategies"/>
+<meta property="og:url" content="https://stepsizestrategies.pythonanywhere.com"/>
+<meta property="og:locale" content="en_US" />
+
+<style>
+
+
+
+
+.articles{
+
+        font-size:19px;
+        font-family: Times New Roman;
+    }
+.titles{
+    font-family: Times New Roman;
+}
+.menu-itemss{
+    font-family: Times New Roman;
+}
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu:hover>.dropdown-menu{display:block;}
+.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+.dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
+.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
+
+
+
+
+
+
+</style>
+<script>
+
+(function($){
+	$(document).ready(function(){
+		$('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			$(this).parent().siblings().removeClass('open');
+			$(this).parent().toggleClass('open');
+		});
+	});
+})(jQuery);
+
+</script>
+
+
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/stepsizestrategies.pythonanywhere.com\/","name":"Step Size Strategies","potentialAction":{"@type":"SearchAction","target":"https:\/\/stepsizestrategies.pythonanywhere.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet" href="{% static 'graphics/css/bootstrap.flatly.min.css' %}" type="text/css"  />
+
+    <link href="{% static 'graphics/css/style.css' %}" rel="stylesheet" type="text/css" >
+
+
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+<link href="{% static 'graphics/css/friendly.css' %}" rel="stylesheet" type="text/css" >
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+ <link href="{% static 'graphics/css/rowReorder.dataTables.min.css' %}" rel="stylesheet" type="text/css">
+
+
+</head>
+<body  >
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand"style="font-family:Times New Roman"> <img src="{% static 'graphics/images/logo_2.png' %}" width="30px"/>&nbsp; Step Size Strategies</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li>
+                            <a href="{% url 'index' %}" style="font-family:Times New Roman">Home</a>
+                        </li>
+
+
+                        {% for name, category in strategies %}
+                        <li class="dropdown">
+                        <a style="font-family:Times New Roman" href="{% url 'strategiess' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ name }}<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            {% for href, title in category %}
+                            <li><a style="font-family:Times New Roman" href="{% url href %}">{{ title }}</a></li>
+                            {% endfor %}
+                        </ul>
+
+                        </li>
+                        {% endfor %}
+
+                <li class="dropdown">
+               <a href="#" style="font-family:Times New Roman"class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Calculations<span class="caret"></span></a>
+               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" >
+                   <li><a style="font-family:Times New Roman" href="{% url 'picardclf' %}">Step Size Strategy Based on Picard Theorem</a></li>
+                   <li><a style="font-family:Times New Roman" href="{% url 'hatanaliziclf' %}">Step Size Strategy Based on Error Analysis</a></li>
+                   <li><a style="font-family:Times New Roman" href="{% url 'pihataclf' %}">Step Size Strategy Based on Picard Theorem and Error Analysis</a></li>
+                   <li class=" dropdown-submenu">
+                       <a style="font-family:Times New Roman" class="dropdown-toggle" data-toggle="collapse" aria-expanded="false" href="#">Step Size Strategy  for The Numerical Integration of Systems of Linear Differential Equations</a>
+                       <ul class="dropdown-toggle dropdown-menu" aria-expanded="true" role="menu">
+                           <li><a style="font-family:Times New Roman" tabindex="-1" href="{% url 'sisalgoclf1' %}">2x2</a></li>
+                           <li><a style="font-family:Times New Roman" href="{% url 'sisalgoclf2' %}">3x3</a></li>
+                           <li><a style="font-family:Times New Roman" href="{% url 'sisalgoclf3' %}">4x4</a></li>
+                        </ul>
+                    </li>
+                     <li class=" dropdown-submenu">
+                       <a style="font-family:Times New Roman"  role="menu" class="dropdown-toggle" data-toggle="collapse" aria-expanded="false"  href="#">Step Size Strategy  for The Numerical Integration of Systems of Non-Linear Differential Equations</a>
+                       <ul class="dropdown-toggle dropdown-menu"  aria-expanded="true" role="menu">
+                           <li><a style="font-family:Times New Roman" tabindex="-1" href="{% url 'nonsisalgoclf1' %}">2x2</a></li>
+                           <li><a style="font-family:Times New Roman" href="{% url 'nonsisalgoclf2' %}">3x3</a></li>
+                           <li><a style="font-family:Times New Roman" href="{% url 'nonsisalgoclf3' %}">4x4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+<li class="dropdown"><a style="font-family:Times New Roman"href="#" class="dropdown-toggle" data-toggle="dropdown">Simulations <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a style="font-family:Times New Roman" href="{% url 'picardcl' %}">Step Size Strategy Based on Picard Theorem</a></li>
+                   <li><a style="font-family:Times New Roman" href="{% url 'hatanalizicl' %}">Step Size Strategy Based on Error Analysis</a></li>
+                   <li><a style="font-family:Times New Roman" href="{% url 'pihatacl' %}">Step Size Strategy  Based on Picard Theorem and Error Analysis</a></li>
+                            <li style="font-family:Times New Roman" class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Step Size Strategy  for The Numerical Integration of Systems of Linear Differential Equations</a>
+								<ul class="dropdown-menu">
+									<li><a style="font-family:Times New Roman"href="{% url 'sisalgocl1' %}">2x2</a></li>
+									<li><a style="font-family:Times New Roman" href="{% url 'sisalgocl2' %}">3x3</a></li>
+									<li><a style="font-family:Times New Roman"href="{% url 'sisalgocl3' %}">4x4</a></li>
+
+								</ul>
+							</li>
+
+                            <li style="font-family:Times New Roman" class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Step Size Strategy for The Numerical Integration of Systems of Non-Linear Differential Equations</a>
+								<ul class="dropdown-menu">
+									<li><a style="font-family:Times New Roman"href="{% url 'nonsisalgocl1' %}">2x2</a></li>
+									<li><a style="font-family:Times New Roman" href="{% url 'nonsisalgocl2' %}">3x3</a></li>
+									<li><a style="font-family:Times New Roman"href="{% url 'nonsisalgocl3' %}">4x4</a></li>
+
+								</ul>
+							</li>
+
+
+
+                        </ul>
+                    </li>
+
+
+
+                         <li>
+                            <a style="font-family:Times New Roman" href="{% url 'about' %}">Contact</a>
+                        </li>
+
+            </ul>
+
+
+
+            <ul class="nav navbar-nav navbar-right">
+                 {% if not request.user.is_authenticated %}
+                    <li><a style="font-family:Times New Roman"href="{% url 'register_view' %}">Register</a></li>
+                    <li><a style="font-family:Times New Roman" href="{% url 'login' %}">Log in</a></li>
+                {% else %}
+                    <li><span style="font-family:Times New Roman" class="navbar-brand"><i class="fa fa-user" aria-hidden="true"></i> &nbsp; Hello {{ user.first_name }}!</span></li>
+                    <li><a style="font-family:Times New Roman"href="{% url 'logout' %}">Log out</a></li>
+                {% endif %}
+
+                </ul>
+
+
+        </div>
+
+         <!-- /.navbar-collapse -->
+
+    </div>
+</div> <!-- /.navbar -->
+
