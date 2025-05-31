@@ -23,7 +23,7 @@ The application includes:
 - **Python 3**
 - **Django Framework**
 - **HTML / CSS**
-- **Matplotlib**
+- **Matplotlib,NumPy,Scipy**
 - **SQLite**
 
 ---
