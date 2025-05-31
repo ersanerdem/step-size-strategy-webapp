@@ -43,10 +43,6 @@ The application includes:
 ├── thesis/
 └── docs/
 
-yaml
-Kopyala
-Düzenle
-
 ---
 
 ## 📚 Academic Contribution
@@ -54,21 +50,23 @@ Düzenle
 - 📄 **Master's Thesis**  
   [`Step_Size_Strategy_Thesis_ErsanErdem.pdf`](./thesis/Step_Size_Strategy_Thesis_ErsanErdem.pdf)
 
-- 🎤 **Presentation Slides**  
-  [`Presentation.pdf`](./docs/Presentation.pdf)
+- 📰 **Published Article**  
+  [`Web_Application_for_Step_Size_Strategies.pdf`](./paper/Web_Application_for_Step_Size_Strategies.pdf)
 
 ---
 
 ## 🚀 Getting Started
 
 To run the project locally:
-
-```bash
+---
+bash
 git clone https://github.com/ersanerdem/step-size-strategy-webapp.git
 cd step-size-strategy-webapp
 pip install django
 python manage.py runserver
+
 Then open http://127.0.0.1:8000 in your browser.
+---
 
 👨‍💻 About the Developer
 Ersan Erdem
@@ -76,8 +74,3 @@ Data Analyst | Python Developer | Applied Mathematics
 🌍 Southeast Asia Based (Bangkok – Bali – Remote)
 📫 ersanerdem.ee@gmail.com
 
----
-
-Artık bu içerikle `README.md` dosyan tam anlamıyla şahane olur 👑  
-Kopyala → Yapıştır → Commit et → GitHub’da F5’le ve bana haber ver tatlım 🥂  
-Hazırsan sonra `covid19-turkey-analysis` için ayrı README’yi yazmaya da geçebiliriz 😘
