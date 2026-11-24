@@ -1,0 +1,120 @@
+{% extends "site/base.html" %}
+{% load i18n static %}
+
+
+{% block content %}
+<section class="hero" style="background-image: url('{% static 'graphics/images/b4.jpg' %}');">
+  <div class="container-xxl py-5">
+    <div class="py-lg-4">
+      <p class="text-uppercase small fw-semibold mb-2" style="letter-spacing: .08em; color: #7fe0c4;">{% translate "Online ODE solver · Euler's method" %}</p>
+      <h1 class="mb-3">Step Size Strategies</h1>
+      <p class="lead mb-2">{% translate "Solve ordinary differential equations and systems with variable step size strategies based on Picard's theorem and on error analysis — and see every step." %}</p>
+      <p class="mb-4 small" style="color: rgba(255,255,255,.7);">Ersan ERDEM · Gülnur ÇELİK KIZILKAN · Ali Osman ÇIBIKDİKEN</p>
+      <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-brand btn-lg" href="{% url 'hatanalizicl' %}"><i class="bi bi-play-fill"></i> {% translate "Start solving" %}</a>
+        <a class="btn btn-outline-light btn-lg" href="{% url 'picard' %}"><i class="bi bi-journal-text"></i> {% translate "Read the theory" %}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container-xxl py-5">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-2 mb-4">
+    <div>
+      <h2 class="h3 mb-1">{% translate "Strategies at a glance" %}</h2>
+      <p class="text-body-secondary mb-0">{% translate "Five step size strategies, each with its step size formula, a solver and its theory." %}</p>
+    </div>
+  </div>
+  <div class="row g-4">
+    {% for s in strategies %}
+      <div class="col-md-6 col-xl-4">
+        <article class="card h-100 shadow-soft strategy-card">
+          <div class="card-body d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center gap-2">
+              <span class="eyebrow mb-0">{{ s.group_label }}</span>
+              <span class="badge-problem">{{ s.problem_text }}</span>
+            </div>
+            <h3 class="h5 mt-2 mb-0">{{ s.title }}</h3>
+            <div class="strategy-formula">\[ {{ s.formula_latex }} \]</div>
+            <p class="text-body-secondary small flex-grow-1">{{ s.summary }}</p>
+            <div class="d-flex flex-wrap gap-2">
+              {% for p in s.solvers %}
+                <a class="btn btn-sm {% if forloop.first %}btn-brand{% else %}btn-outline-brand{% endif %}" href="{% url p.slug %}">
+                  {% if p.size_label %}{{ p.size_label }}{% else %}<i class="bi bi-calculator" aria-hidden="true"></i> {% translate "Open the solver" %}{% endif %}
+                </a>
+              {% endfor %}
+              <a class="btn btn-sm btn-link ms-auto" href="{% url s.theory %}">{% translate "Theory" %} <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    {% endfor %}
+    <div class="col-md-6 col-xl-4">
+      <div class="card h-100 border-0 bg-transparent">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h3 class="h5">{% translate "Not sure which one?" %}</h3>
+          <ul class="small text-body-secondary ps-3 mb-0">
+            <li>{% translate "Existence and uniqueness known: Picard theorem or error analysis." %}</li>
+            <li>{% translate "Existence not known: Picard theorem + error analysis." %}</li>
+            <li>{% translate "Systems of equations: the linear or non-linear system strategy." %}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="card shadow-soft mt-4" aria-labelledby="why-heading">
+    <div class="card-body p-4 p-lg-5">
+      <h2 class="h3 mb-3" id="why-heading">{% translate "Euler's method with a variable step size" %}</h2>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <p class="mb-0">{% translate "Euler's method approximates the solution of $x' = f(t,x)$ step by step: $x_{i+1} = x_i + h_i f(t_i, x_i)$. With a fixed step $h$, a step small enough for the steep parts of the solution wastes work where the solution is flat, and a large step loses accuracy where the solution changes quickly." %}</p>
+        </div>
+        <div class="col-lg-6">
+          <p class="mb-0">{% translate "A step size strategy chooses $h_i$ anew in every step from bounds of the problem: so that the next point stays where Picard's theorem guarantees a unique solution, or so that the local error stays below a chosen level $\delta$. Here you can try these strategies on your own equations and on classical engineering models, and watch the step size adapt." %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="row g-4 mt-2">
+    <div class="col-lg-7">
+      <div class="card h-100 shadow-soft">
+        <div class="card-body">
+          <h2 class="h4 mb-3">{% translate "How it works" %}</h2>
+          <div class="d-flex gap-3 mb-3">
+            <span class="step-number">1</span>
+            <div><strong>{% translate "Pick a strategy and an example" %}</strong><br>
+              <span class="text-body-secondary">{% translate "Every solver page has ready-made engineering examples, or type your own function — a live preview shows how it is read." %}</span></div>
+          </div>
+          <div class="d-flex gap-3 mb-3">
+            <span class="step-number">2</span>
+            <div><strong>{% translate "Solve" %}</strong><br>
+              <span class="text-body-secondary">{% translate "Euler's method runs with a step size chosen by the strategy at every step." %}</span></div>
+          </div>
+          <div class="d-flex gap-3">
+            <span class="step-number">3</span>
+            <div><strong>{% translate "Explore the result" %}</strong><br>
+              <span class="text-body-secondary">{% translate "Zoom into interactive charts, check the step sizes and local errors, and download the full table as Excel." %}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="card h-100 shadow-soft">
+        <div class="card-body">
+          <h2 class="h4 mb-3"><i class="bi bi-file-earmark-text text-brand"></i> {% translate "Publications" %}</h2>
+          <ul class="list-unstyled mb-0">
+            {% for title, source, url in publications %}
+              <li class="mb-2">
+                <a href="{{ url }}" target="_blank" rel="noopener">{{ title }}</a>
+                <span class="small text-body-secondary"> · {{ source }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

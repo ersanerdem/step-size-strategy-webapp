@@ -1,0 +1,13 @@
+{% load i18n static %}
+<div class="col-md-5 auth-aside d-none d-md-flex flex-column">
+  <a class="d-flex align-items-center gap-2 text-white text-decoration-none mb-4" href="{% url 'index' %}">
+    <img src="{% static 'site/img/logo.svg' %}" alt="" width="40" height="40">
+    <span class="serif fw-bold fs-5">Step Size Strategies</span>
+  </a>
+  <h2 class="mb-3">{% translate "Your free account" %}</h2>
+  <ul class="list-unstyled auth-benefits mb-0">
+    <li><i class="bi bi-file-earmark-excel" aria-hidden="true"></i><span>{% translate "Download every table of steps as an Excel file." %}</span></li>
+    <li><i class="bi bi-image" aria-hidden="true"></i><span>{% translate "Save the interactive charts as high-resolution images." %}</span></li>
+    <li><i class="bi bi-gift" aria-hidden="true"></i><span>{% translate "Free of charge." %}</span></li>
+  </ul>
+</div>

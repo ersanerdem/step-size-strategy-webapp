@@ -1,0 +1,40 @@
+{% extends "site/base.html" %}
+{% load i18n %}
+
+{% block meta %}{% translate "Log in" as page_title %}{% translate "Log in to Step Size Strategies." as page_description %}{% include "site/_meta.html" with noindex=True %}{% endblock %}
+
+{% block content %}
+<div class="container-xxl py-4 py-md-5">
+  <div class="card shadow-soft auth-card mx-auto overflow-hidden">
+    <div class="row g-0">
+      {% include "site/_auth_aside.html" %}
+      <div class="col-md-7">
+        <div class="p-4 p-lg-5">
+          <h1 class="h3 mb-1">{% translate "Log in" %}</h1>
+          <p class="text-body-secondary small mb-4">{% translate "Welcome back." %}</p>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+            {% if form.errors %}
+              <div class="alert alert-danger">{% translate "Invalid username or password." %}</div>
+            {% endif %}
+            <div class="mb-3">
+              <label class="form-label" for="id_username">{% translate "Username" %}</label>
+              <input type="text" id="id_username" name="username" class="form-control"
+                     value="{{ form.username.value|default_if_none:'' }}" autocomplete="username" autofocus required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label" for="id_password">{% translate "Password" %}</label>
+              <input type="password" id="id_password" name="password" class="form-control" autocomplete="current-password" required>
+            </div>
+            <button type="submit" class="btn btn-brand w-100 py-2">{% translate "Log in" %}</button>
+          </form>
+          <p class="text-center small mt-4 mb-0">
+            {% translate "No account yet?" %} <a href="{% url 'register_view' %}">{% translate "Register" %}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

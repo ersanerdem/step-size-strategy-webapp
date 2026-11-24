@@ -1,0 +1,13 @@
+{
+  "name": "Step Size Strategies",
+  "short_name": "Step Sizes",
+  "description": "Variable step size strategies for the numerical solution of ODEs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f7f9",
+  "theme_color": "#1f2d3d",
+  "icons": [
+    {"src": "img/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "img/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}

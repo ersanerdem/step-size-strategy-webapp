@@ -1,0 +1,32 @@
+{% extends "site/theory/_layout.html" %}
+{% load i18n %}
+
+{% block meta %}{% translate "Step Size Strategy Based on Picard Theorem" as page_title %}{% translate "Step size strategy for Euler's method based on Picard's theorem: the formula h_i = min{a, b/M_i}, explained, with a free online solver." as page_description %}{% include "site/_meta.html" with schema="article" %}{% endblock %}
+
+{% block theory %}
+{% get_current_language as LANG %}
+<p>{% if LANG == "tr" %}Aşağıdaki Cauchy problemini göz önüne alalım. Problem \(D=\{(t,x): |t-t_{0}|\leq a,\ |x-x_{0}|\leq b\}\) bölgesinde tanımlıdır ve \(f\) türevlenebilir bir fonksiyondur.{% else %}Consider the Cauchy problem below on \(D=\{(t,x): |t-t_{0}|\leq a,\ |x-x_{0}|\leq b\}\), where \(f\) is a differentiable function.{% endif %}</p>
+
+<figure class="formula-card">
+  <figcaption><span>{% translate "Cauchy problem" %}</span></figcaption>
+  <div class="formula-body">\[x'(t)=f(t,x(t)),\quad x(t_{0})=x_{0}\]</div>
+</figure>
+
+<p>{% if LANG == "tr" %}Cauchy probleminin çözümünün varlığı ve tekliği biliniyorsa, Picard Teoremi ardışık olarak uygulanarak \(i\). adımdaki adım uzunluğu aşağıdaki gibi elde edilir.{% else %}If the existence and uniqueness of the solution are known, the step size in the \(i\)th step is obtained by applying Picard's theorem successively:{% endif %}</p>
+
+<figure class="formula-card is-main">
+  <figcaption><span>{% translate "Step size" %}</span><span class="formula-tag">{% translate "Main formula" %}</span></figcaption>
+  <div class="formula-body">\[h_{i}= \min\left\{ a,\frac{b}{M_{i}} \right\}\]</div>
+</figure>
+
+<h2>{% translate "Symbols" %}</h2>
+<dl class="var-list">
+  <div class="var-list-head" aria-hidden="true"><span>{% translate "Symbol" %}</span><span>{% translate "Meaning" %}</span></div>
+  <div class="var-row"><dt>\(y_{i}\)</dt><dd>{% if LANG == "tr" %}\(i\). adımda elde edilen sayısal çözüm.{% else %}The numerical solution obtained in the \(i\)th step.{% endif %}</dd></div>
+  <div class="var-row"><dt>\(D_{i}\)</dt><dd>{% if LANG == "tr" %}\(i\). adımdaki dikdörtgen bölge:{% else %}The rectangle of the \(i\)th step:{% endif %}\[D_{i}=\{(t,y): |t-t_{i}|\leq a,\ |y-y_{i}|\leq b\}\]</dd></div>
+  <div class="var-row"><dt>\(M_{i}\)</dt><dd>{% if LANG == "tr" %}\(|f|\) için \(D_{i}\) üzerinde bir üst sınır:{% else %}An upper bound of \(|f|\) on \(D_{i}\):{% endif %}\[\max_{(\zeta,\xi)\in D_{i}}|f(\zeta,\xi)|\leq M_{i}\]</dd></div>
+  <div class="var-row"><dt>\(a,\ b\)</dt><dd>{% if LANG == "tr" %}Dikdörtgenin \(t\) ve \(x\) yönündeki yarı genişlikleri.{% else %}The half-widths of the rectangle in the \(t\) and \(x\) directions.{% endif %}</dd></div>
+</dl>
+
+<p class="theory-source mt-3"><i class="bi bi-book" aria-hidden="true"></i> Çelik Kızılkan 2004</p>
+{% endblock %}

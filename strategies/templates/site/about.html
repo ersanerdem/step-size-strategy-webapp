@@ -1,0 +1,103 @@
+{% extends "site/base.html" %}
+{% load i18n static %}
+
+{% block meta %}{% translate "About the project" as page_title %}{% translate "Step Size Strategies: a master's thesis project at Necmettin Erbakan University. The team, publications and conference." as page_description %}{% include "site/_meta.html" %}{% endblock %}
+
+{% block content %}
+<div class="container-xxl py-5">
+  <h1 class="mb-2">{% translate "About the project" %}</h1>
+  <p class="text-body-secondary mb-5" style="max-width: 48rem;">
+    {% translate "This web application was first developed in 2017 as part of a master's thesis at Necmettin Erbakan University, to make the step size strategies developed by the research group usable online. In 2026 it was moved to Django 6 and redesigned with interactive charts, ready-made examples and a Turkish interface." %}
+  </p>
+
+  {% get_current_language as LANG %}
+  <h2 class="h4 mb-3">{% translate "Thesis and article" %}</h2>
+  <div class="row g-4 mb-5">
+    <div class="col-lg-6">
+      <article class="card h-100 shadow-soft">
+        <div class="card-body d-flex flex-column">
+          <p class="eyebrow"><i class="bi bi-mortarboard" aria-hidden="true"></i> {% translate "Master's thesis" %} · 2019</p>
+          <h3 class="h5 mb-2">{% if LANG == "tr" %}Adım Genişliği Stratejileri İçin Web Uygulaması{% else %}Web Application for Step Size Strategies{% endif %}</h3>
+          <p class="small text-body-secondary mb-3">
+            Ersan ERDEM<br>
+            {% translate "Advisor" %}: {% if LANG == "tr" %}Dr. Öğr. Üyesi{% else %}Asst. Prof.{% endif %} Gülnur ÇELİK KIZILKAN<br>
+            {% translate "Necmettin Erbakan University, Graduate School of Natural and Applied Sciences, Department of Mathematics, Konya, June 2019" %}
+          </p>
+          <div class="mt-auto">
+            <a class="btn btn-brand btn-sm" href="{% static 'site/docs/ersan-erdem-thesis-2019.pdf' %}" target="_blank" rel="noopener">
+              <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> {% translate "Read the thesis (PDF)" %}
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="col-lg-6">
+      <article class="card h-100 shadow-soft">
+        <div class="card-body d-flex flex-column">
+          <p class="eyebrow"><i class="bi bi-journal-text" aria-hidden="true"></i> {% translate "Journal article" %} · 2019</p>
+          <h3 class="h5 mb-2">Web Application for Step Size Strategies</h3>
+          <p class="small text-body-secondary mb-3">
+            Ersan ERDEM, Gülnur ÇELİK KIZILKAN, Ali Osman ÇIBIKDİKEN<br>
+            <em>Konuralp Journal of Mathematics</em>, 7(2), 475–485, 2019
+          </p>
+          <div class="mt-auto d-flex flex-wrap gap-2">
+            <a class="btn btn-brand btn-sm" href="https://dergipark.org.tr/en/download/article-file/844654" target="_blank" rel="noopener">
+              <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> {% translate "Read the article (PDF)" %}
+            </a>
+            <a class="btn btn-outline-brand btn-sm" href="https://dergipark.org.tr/en/pub/konuralpjournalmath/article/618922" target="_blank" rel="noopener">
+              DergiPark <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <h2 class="h4 mb-3">{% translate "Team" %}</h2>
+  <div class="row g-4 mb-5">
+    {% for member in team %}
+      <div class="col-md-4">
+        <div class="card h-100 shadow-soft text-center">
+          <div class="card-body">
+            {% if member.photo %}
+              <img src="{% static member.photo %}" alt="{{ member.name }}" class="rounded-circle border mb-3 object-fit-cover" width="112" height="112">
+            {% else %}
+              <span class="feature-icon mb-3" style="width: 112px; height: 112px; border-radius: 50%; font-size: 2.6rem;"><i class="bi bi-person"></i></span>
+            {% endif %}
+            <h3 class="h5 mb-1">{{ member.name }}</h3>
+            <p class="small text-body-secondary">{{ member.role }}</p>
+            <a href="mailto:{{ member.email }}" class="small"><i class="bi bi-envelope"></i> {{ member.email }}</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <h2 class="h4 mb-3">{% translate "Publications" %}</h2>
+      <ul class="list-group shadow-soft">
+        {% for title, source, url in publications %}
+          <li class="list-group-item">
+            <a href="{{ url }}" target="_blank" rel="noopener">{{ title }}</a>
+            <span class="small text-body-secondary"> · {{ source }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-lg-5">
+      <h2 class="h4 mb-3">{% translate "Conferences" %}</h2>
+      <p class="small text-body-secondary mb-2">{% translate "International Conference on Mathematics and Mathematics Education (ICMME)" %}</p>
+      <ul class="list-group shadow-soft">
+        {% for c in conferences %}
+          <li class="list-group-item">
+            <span class="badge text-bg-light border me-1">{{ c.event }}</span>
+            <em>{{ c.title }}</em>
+            <div class="small text-body-secondary mt-1">{{ c.place }}{% if c.authors %} · {{ c.authors }}{% endif %}</div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

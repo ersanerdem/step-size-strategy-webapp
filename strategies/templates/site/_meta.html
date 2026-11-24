@@ -1,0 +1,44 @@
+{% comment %}
+Head tags for search engines and social networks.
+Context: page_title, page_description, optional noindex; "seo" comes from strategies.seo.seo.
+{% endcomment %}
+<title>{{ page_title }} · Step Size Strategies</title>
+<meta name="description" content="{{ page_description }}">
+{% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+<link rel="canonical" href="{{ seo.canonical }}">
+{% for alt in seo.alternates %}<link rel="alternate" hreflang="{{ alt.code }}" href="{{ alt.href }}">
+{% endfor %}<link rel="alternate" hreflang="x-default" href="{{ seo.x_default }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Step Size Strategies">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:url" content="{{ seo.canonical }}">
+<meta property="og:image" content="{{ seo.og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Step Size Strategies">
+<meta property="og:locale" content="{{ seo.og_locale }}">
+{% for loc in seo.og_locale_alternates %}<meta property="og:locale:alternate" content="{{ loc }}">
+{% endfor %}<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title }}">
+<meta name="twitter:description" content="{{ page_description }}">
+<meta name="twitter:image" content="{{ seo.og_image }}">
+{% if seo.google_verification %}<meta name="google-site-verification" content="{{ seo.google_verification }}">{% endif %}
+{% if seo.bing_verification %}<meta name="msvalidate.01" content="{{ seo.bing_verification }}">{% endif %}
+{% if seo.yandex_verification %}<meta name="yandex-verification" content="{{ seo.yandex_verification }}">{% endif %}
+{% if schema == "app" %}<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication",
+ "name": "Step Size Strategies", "url": "{{ seo.canonical|escapejs }}", "description": "{{ page_description|escapejs }}",
+ "image": "{{ seo.og_image|escapejs }}", "inLanguage": ["en", "tr"],
+ "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript",
+ "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+ "about": ["Euler method", "Ordinary differential equations", "Numerical analysis", "Adaptive step size"],
+ "author": [{"@type": "Person", "name": "Ersan Erdem"}, {"@type": "Person", "name": "Gülnur Çelik Kızılkan"}, {"@type": "Person", "name": "Ali Osman Çıbıkdiken"}],
+ "sourceOrganization": {"@type": "CollegeOrUniversity", "name": "Necmettin Erbakan University"}}
+</script>{% elif schema == "article" %}<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "TechArticle",
+ "headline": "{{ page_title|escapejs }}", "description": "{{ page_description|escapejs }}",
+ "url": "{{ seo.canonical|escapejs }}", "image": "{{ seo.og_image|escapejs }}", "inLanguage": "{{ LANGUAGE_CODE|escapejs }}",
+ "author": [{"@type": "Person", "name": "Gülnur Çelik Kızılkan"}, {"@type": "Person", "name": "Ersan Erdem"}, {"@type": "Person", "name": "Ali Osman Çıbıkdiken"}],
+ "isPartOf": {"@type": "WebSite", "name": "Step Size Strategies", "url": "{{ seo.base|escapejs }}/"}}
+</script>{% endif %}

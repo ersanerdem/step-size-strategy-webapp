@@ -1,0 +1,46 @@
+{% extends "site/base.html" %}
+{% load i18n %}
+
+{% block meta %}{% translate "Register" as page_title %}{% translate "Create a free account to download results as Excel files and charts as images." as page_description %}{% include "site/_meta.html" with noindex=True %}{% endblock %}
+
+{% block content %}
+<div class="container-xxl py-4 py-md-5">
+  <div class="card shadow-soft auth-card mx-auto overflow-hidden">
+    <div class="row g-0">
+      {% include "site/_auth_aside.html" %}
+      <div class="col-md-7">
+        <div class="p-4 p-lg-5">
+          <h1 class="h3 mb-1">{% translate "Register" %}</h1>
+          <p class="text-body-secondary small mb-4">{% translate "All fields are required." %}</p>
+          <form action="{% url 'register_view' %}" method="post" novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+              <div class="alert alert-danger">{% for e in form.non_field_errors %}{{ e }} {% endfor %}</div>
+            {% endif %}
+            <div class="row g-3">
+              {% for bf in form %}
+                <div class="{% if bf.name == 'first_name' or bf.name == 'last_name' or bf.name == 'password1' or bf.name == 'password2' %}col-sm-6{% else %}col-12{% endif %}">
+                  <label class="form-label" for="{{ bf.auto_id }}">{{ bf.label }}</label>
+                  <input type="{% if 'password' in bf.name %}password{% elif bf.name == 'email' %}email{% else %}text{% endif %}"
+                         name="{{ bf.html_name }}" id="{{ bf.auto_id }}"
+                         value="{% if 'password' not in bf.name %}{{ bf.value|default_if_none:'' }}{% endif %}"
+                         class="form-control{% if bf.errors %} is-invalid{% endif %}"
+                         autocomplete="{% if bf.name == 'username' %}username{% elif bf.name == 'email' %}email{% elif bf.name == 'first_name' %}given-name{% elif bf.name == 'last_name' %}family-name{% else %}new-password{% endif %}"
+                         {% if bf.field.required %}required{% endif %}
+                         {% if bf.help_text %}aria-describedby="{{ bf.auto_id }}_help"{% endif %}>
+                  {% for e in bf.errors %}<div class="invalid-feedback">{{ e }}</div>{% endfor %}
+                  {% if bf.help_text and bf.name != 'password2' %}<div class="auth-help" id="{{ bf.auto_id }}_help">{{ bf.help_text|safe }}</div>{% endif %}
+                </div>
+              {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-brand w-100 py-2 mt-4">{% translate "Register" %}</button>
+          </form>
+          <p class="text-center small mt-4 mb-0">
+            {% translate "Already registered?" %} <a href="{% url 'login' %}">{% translate "Log in" %}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

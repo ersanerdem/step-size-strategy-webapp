@@ -1,0 +1,61 @@
+{% extends "site/inner.html" %}
+{% load i18n %}
+{% comment %}
+Theory page frame: breadcrumb, title, key facts, the page's own text (block "theory") and example cards.
+Context: strategy (catalog.Strategy), examples (views.example_cards).
+{% endcomment %}
+
+{% block content %}
+<div class="py-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb small mb-2">
+      <li class="breadcrumb-item"><a href="{% url 'index' %}">{% translate "Home" %}</a></li>
+      <li class="breadcrumb-item">{% translate "Theory" %}</li>
+      <li class="breadcrumb-item active" aria-current="page">{{ strategy.short_title }}</li>
+    </ol>
+  </nav>
+
+  <header>
+    <p class="eyebrow">{% translate "Theory" %} · {{ strategy.group_label }}</p>
+    <h1 class="page-title mb-2">{{ strategy.title }}</h1>
+    <p class="page-lead mb-3">{{ strategy.summary }}</p>
+    <div class="d-flex flex-wrap gap-2">
+      {% for p in strategy.solvers %}
+        <a class="btn {% if forloop.first %}btn-brand{% else %}btn-outline-brand{% endif %}" href="{% url p.slug %}">
+          <i class="bi bi-calculator" aria-hidden="true"></i>
+          {% if p.size_label %}{% translate "Solver" %} {{ p.size_label }}{% else %}{% translate "Open the solver" %}{% endif %}
+        </a>
+      {% endfor %}
+    </div>
+    <dl class="facts">
+      <div><dt>{% translate "Problem" %}</dt><dd>\( {{ strategy.problem_latex }} \)</dd></div>
+      <div><dt>{% translate "Step rule" %}</dt><dd>{{ strategy.rule }}</dd></div>
+      <div><dt>{% translate "Requirement" %}</dt><dd>{{ strategy.requirement }}</dd></div>
+      <div><dt>{% translate "Source" %}</dt><dd>{{ strategy.source }}</dd></div>
+    </dl>
+  </header>
+
+  <article class="theory mt-4">
+    {% block theory %}{% endblock %}
+  </article>
+
+  {% if examples %}
+    <section class="mt-5" aria-labelledby="examples-heading">
+      <h2 class="h4 mb-1" id="examples-heading">{% translate "Try it in the solver" %}</h2>
+      <p class="text-body-secondary mb-3">{% translate "Each card opens the solver with the example loaded and solved." %}</p>
+      <div class="row g-3">
+        {% for ex in examples %}
+          <div class="col-sm-6 col-xxl-3">
+            <a class="example-card" href="{{ ex.url }}">
+              {% if ex.size %}<span class="example-size">{{ ex.size }}</span>{% endif %}
+              <strong>{{ ex.title }}</strong>
+              <span class="example-description">{{ ex.description }}</span>
+              <span class="example-go">{% translate "Solve" %} <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</div>
+{% endblock %}

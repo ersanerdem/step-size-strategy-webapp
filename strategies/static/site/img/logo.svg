@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Step Size Strategies">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#27405a"/>
+      <stop offset="1" stop-color="#0f1a26"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#tile)"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="13.3" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.5"/>
+  <!-- exact solution (faint) -->
+  <polyline points="8,46.7 10,46.6 12,46.4 14,46.0 16,45.6 18,44.9 20,44.0 22,42.7 24,41.0 26,38.7 28,35.8 30,32.6 32,29.0 34,25.4 36,22.2 38,19.3 40,17.0 42,15.3 44,14.0 46,13.1 48,12.4 50,12.0 52,11.6 54,11.4 56,11.3"
+            fill="none" stroke="#46d1ac" stroke-opacity="0.35" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- time axis with step marks: short steps where the curve is steep -->
+  <line x1="8" y1="55" x2="56" y2="55" stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/>
+  <g stroke="#ffffff" stroke-opacity="0.75" stroke-width="1.4" stroke-linecap="round">
+    <line x1="10" y1="52.5" x2="10" y2="57.5"/>
+    <line x1="22" y1="52.5" x2="22" y2="57.5"/>
+    <line x1="28" y1="52.5" x2="28" y2="57.5"/>
+    <line x1="32" y1="52.5" x2="32" y2="57.5"/>
+    <line x1="36" y1="52.5" x2="36" y2="57.5"/>
+    <line x1="42" y1="52.5" x2="42" y2="57.5"/>
+    <line x1="54" y1="52.5" x2="54" y2="57.5"/>
+  </g>
+  <!-- Euler steps -->
+  <polyline points="10,46.6 22,42.7 28,35.8 32,29 36,22.2 42,15.3 54,11.4"
+            fill="none" stroke="#46d1ac" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <g fill="#ffffff">
+    <circle cx="10" cy="46.6" r="2.4"/>
+    <circle cx="22" cy="42.7" r="2.4"/>
+    <circle cx="28" cy="35.8" r="2.4"/>
+    <circle cx="32" cy="29" r="2.4"/>
+    <circle cx="36" cy="22.2" r="2.4"/>
+    <circle cx="42" cy="15.3" r="2.4"/>
+  </g>
+  <circle cx="54" cy="11.4" r="3.6" fill="#46d1ac" stroke="#ffffff" stroke-width="1.5"/>
+</svg>

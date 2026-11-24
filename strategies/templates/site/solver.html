@@ -1,0 +1,197 @@
+{% extends "site/inner.html" %}
+{% load i18n static %}
+
+{% block meta %}{% include "site/_meta.html" with page_title=meta_title page_description=meta_description %}{% endblock %}
+
+{% block content %}
+<div class="py-4">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb small mb-2">
+      <li class="breadcrumb-item"><a href="{% url 'index' %}">{% translate "Home" %}</a></li>
+      <li class="breadcrumb-item">{% translate "Solvers" %}</li>
+      <li class="breadcrumb-item active" aria-current="page">{{ strategy.short_title }}{% if problem.size_label %} · {{ problem.size_label }}{% endif %}</li>
+    </ol>
+  </nav>
+
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-start gap-3 mb-4">
+    <div>
+      <p class="eyebrow">{% translate "Solver" %} · {{ strategy.group_label }}{% if problem.size_label %} · {{ problem.size_label }}{% endif %}</p>
+      <h1 class="page-title mb-2">{{ problem.title }}</h1>
+      <p class="page-lead mb-0">{{ problem.summary }}</p>
+    </div>
+    <a class="btn btn-outline-brand flex-shrink-0" href="{% url problem.theory_url_name %}">
+      <i class="bi bi-journal-text"></i> {% translate "Theory" %}
+    </a>
+  </div>
+
+  <div class="row g-4">
+    {# ---------------------------------------------------------------- input #}
+    <div class="col-xl-5">
+      <form id="solver-form" method="post" novalidate class="card shadow-soft">
+        {% csrf_token %}
+        <div class="card-header py-3">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+            <h2 class="h5 mb-0">{% translate "Input" %}</h2>
+            {% if solver_config.presets %}
+              <select class="form-select form-select-sm preset-select" id="preset-select" aria-label="{% translate 'Load an example' %}">
+                <option value="">{% translate "Load an example…" %}</option>
+                {% for preset in solver_config.presets %}<option value="{{ preset.id }}">{{ preset.title }}</option>{% endfor %}
+              </select>
+            {% endif %}
+          </div>
+          <div class="preset-description small text-body-secondary mt-2" id="preset-description"></div>
+        </div>
+
+        <div class="card-body">
+          <div class="alert alert-danger{% if not form.non_field_errors %} d-none{% endif %}" role="alert" id="form-alert">
+            {% for error in form.non_field_errors %}{{ error }}{% if not forloop.last %}<br>{% endif %}{% endfor %}
+          </div>
+
+          {% if problem.family == "scalar" %}
+            <p class="mb-2">{% translate "Problem" %}: \( x'(t) = f(t,x),\; x(t_0) = x_0 \)</p>
+          {% elif problem.family == "linear" %}
+            <p class="mb-2">{% translate "Problem" %}: \( X'(t) = A\,X(t),\; X(t_0) = X_0 \)</p>
+          {% else %}
+            <p class="mb-2">{% translate "Problem" %}: \( X'(t) = A\,X(t) + \varphi(t, X),\; X(t_0) = X_0 \)</p>
+          {% endif %}
+
+          {% if layout.A %}
+            <div class="mb-3">
+              <div class="matrix-wrap">
+                <span>\( A = \)</span>
+                <div class="matrix" style="--n: {{ layout.A|length }};">
+                  {% for row in layout.A %}{% for bf in row %}
+                    <div>
+                      <input type="text" name="{{ bf.html_name }}" id="{{ bf.auto_id }}" value="{{ bf.value|default_if_none:'' }}"
+                             class="form-control form-control-sm{% if bf.errors %} is-invalid{% endif %}" inputmode="decimal"
+                             autocomplete="off" aria-label="a{{ forloop.parentloop.counter }}{{ forloop.counter }}">
+                    </div>
+                  {% endfor %}{% endfor %}
+                </div>
+                <span class="ms-2">\( X_0 = \)</span>
+                <div class="matrix" style="--n: 1;">
+                  {% for bf in layout.X0 %}
+                    <div>
+                      <input type="text" name="{{ bf.html_name }}" id="{{ bf.auto_id }}" value="{{ bf.value|default_if_none:'' }}"
+                             class="form-control form-control-sm{% if bf.errors %} is-invalid{% endif %}" inputmode="decimal"
+                             autocomplete="off" aria-label="x{{ forloop.counter }}(t0)">
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="invalid-feedback d-block" data-error-group="matrix">
+                {% for row in layout.A %}{% for bf in row %}{% if bf.errors %}a{{ forloop.parentloop.counter }}{{ forloop.counter }}: {{ bf.errors|join:" " }} {% endif %}{% endfor %}{% endfor %}
+                {% for bf in layout.X0 %}{% if bf.errors %}x{{ forloop.counter }}: {{ bf.errors|join:" " }} {% endif %}{% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          {% for bf in layout.expressions %}
+            <div class="mb-3">
+              <label class="form-label math-label" for="{{ bf.auto_id }}">\( {{ bf.label }} \)</label>
+              <input type="text" name="{{ bf.html_name }}" id="{{ bf.auto_id }}" value="{{ bf.value|default_if_none:'' }}"
+                     class="form-control font-monospace{% if bf.errors %} is-invalid{% endif %}" maxlength="200"
+                     autocomplete="off" spellcheck="false" placeholder="{{ bf.field.widget.attrs.placeholder }}">
+              <div class="invalid-feedback" data-error-for="{{ bf.html_name }}">{{ bf.errors|join:" " }}</div>
+              <div class="math-preview mt-2" data-preview-for="{{ bf.html_name }}" aria-live="polite"></div>
+              {% if bf.help_text %}<div class="form-text">{{ bf.help_text }}</div>{% endif %}
+            </div>
+          {% endfor %}
+          {% if layout.variables %}
+            <p class="form-text mt-n2">{% translate "Variables" %}: <code>t</code>, <code>{{ layout.variables }}</code> — {% translate "functions" %}: <code>sin cos tan exp log sqrt abs …</code></p>
+          {% endif %}
+
+          <div class="row g-3">
+            {% for bf in layout.params %}
+              <div class="col-6 col-sm-4">
+                <label class="form-label math-label mb-1" for="{{ bf.auto_id }}" title="{{ bf.help_text }}">\( {{ bf.label }} \)</label>
+                <input type="text" name="{{ bf.html_name }}" id="{{ bf.auto_id }}" value="{{ bf.value|default_if_none:'' }}"
+                       class="form-control{% if bf.errors %} is-invalid{% endif %}" inputmode="decimal" autocomplete="off"
+                       aria-describedby="help-{{ bf.html_name }}">
+                <div class="invalid-feedback" data-error-for="{{ bf.html_name }}">{{ bf.errors|join:" " }}</div>
+                <div class="form-text" id="help-{{ bf.html_name }}">{{ bf.help_text }}</div>
+              </div>
+            {% endfor %}
+          </div>
+          <p class="form-text mt-3 mb-0"><i class="bi bi-info-circle"></i> {% translate "Decimal comma or point both work (0,5 = 0.5); pi and 1e-3 are accepted." %}</p>
+        </div>
+
+        <div class="card-footer d-flex flex-wrap gap-2 align-items-center py-3">
+          <button type="submit" name="action" value="run" class="btn btn-brand px-4" id="solve-button">
+            <span class="spinner-border spinner-border-sm me-1 d-none" aria-hidden="true"></span>
+            <i class="bi bi-play-fill"></i> {% translate "Solve" %}
+          </button>
+          {% if user.is_authenticated %}
+            <button type="submit" name="action" value="download" class="btn btn-outline-brand" formnovalidate>
+              <i class="bi bi-file-earmark-excel"></i> {% translate "Excel file" %}
+            </button>
+          {% else %}
+            <span class="small text-body-secondary">
+              <a href="{% url 'login' %}?next={{ request.get_full_path|urlencode }}">{% translate "Log in" %}</a>
+              {% translate "to download results as Excel and charts as images." %}
+            </span>
+          {% endif %}
+        </div>
+      </form>
+    </div>
+
+    {# ---------------------------------------------------------------- results #}
+    <div class="col-xl-7">
+      <section class="card shadow-soft h-100" aria-labelledby="results-heading">
+        <div class="card-header py-3"><h2 class="h5 mb-0" id="results-heading">{% translate "Results" %}</h2></div>
+        <div class="card-body">
+          <div class="results-empty d-flex flex-column align-items-center justify-content-center text-center text-body-secondary" id="results-empty">
+            <i class="bi bi-graph-up-arrow mb-3"></i>
+            <p class="mb-1 fw-semibold">{% translate "No result yet" %}</p>
+            <p class="mb-0 small" style="max-width: 26rem;">{% translate "Choose an example from the list or enter your own values, then press Solve. Charts, a summary and the full table of steps will appear here." %}</p>
+          </div>
+
+          <div class="d-none" id="results">
+            <div class="alert alert-info d-none" role="status" id="result-notice"></div>
+            <div class="summary-grid mb-3" id="result-summary"></div>
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab-charts" data-bs-toggle="tab" data-bs-target="#pane-charts" type="button" role="tab" aria-controls="pane-charts" aria-selected="true">
+                  <i class="bi bi-graph-up"></i> {% translate "Charts" %}
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-table" data-bs-toggle="tab" data-bs-target="#pane-table" type="button" role="tab" aria-controls="pane-table" aria-selected="false">
+                  <i class="bi bi-table"></i> {% translate "Table" %}
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content pt-3">
+              <div class="tab-pane fade show active" id="pane-charts" role="tabpanel" aria-labelledby="tab-charts">
+                <div id="charts"></div>
+              </div>
+              <div class="tab-pane fade" id="pane-table" role="tabpanel" aria-labelledby="tab-table">
+                <div class="table-scroll border rounded">
+                  <table class="table table-sm table-striped table-hover mb-0 result-table" id="result-table">
+                    <thead></thead><tbody></tbody>
+                  </table>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-2 small">
+                  <span id="table-info" class="text-body-secondary"></span>
+                  <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-secondary" id="page-prev"><i class="bi bi-chevron-left"></i> {% translate "Previous" %}</button>
+                    <button type="button" class="btn btn-outline-secondary" id="page-next">{% translate "Next" %} <i class="bi bi-chevron-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{{ solver_config|json_script:"solver-config" }}
+{{ solver_text|json_script:"solver-text" }}
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
+<script src="{% static 'site/js/solver.js' %}?v={{ asset_version }}"></script>
+{% endblock %}

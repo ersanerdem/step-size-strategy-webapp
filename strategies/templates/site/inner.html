@@ -1,0 +1,13 @@
+{% extends "site/base.html" %}
+{% comment %}Pages with the side menu on wide screens (theory and solver pages).{% endcomment %}
+
+{% block page %}
+<div class="container-xxl flex-grow-1">
+  <div class="inner-layout">
+    {% include "site/_sidebar.html" with sidebar_desktop=True %}
+    <main id="main" class="inner-main">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "site/theory/_layout.html" %}
+{% load i18n %}
+
+{% block meta %}{% translate "Step Size Strategy Based on Error Analysis" as page_title %}{% translate "Error analysis based step size strategy for Euler's method: each step keeps the local error below δ. Formula, explanation and a free online solver." as page_description %}{% include "site/_meta.html" with schema="article" %}{% endblock %}
+
+{% block theory %}
+{% get_current_language as LANG %}
+<p>{% if LANG == "tr" %}Aşağıdaki Cauchy problemini göz önüne alalım. Problem \(D=\{(t,x): |t-t_{0}|\leq a,\ |x-x_{0}|\leq b\}\) bölgesinde tanımlıdır ve \(f\) türevlenebilir bir fonksiyondur.{% else %}Consider the Cauchy problem below on \(D=\{(t,x): |t-t_{0}|\leq a,\ |x-x_{0}|\leq b\}\), where \(f\) is a differentiable function.{% endif %}</p>
+
+<figure class="formula-card">
+  <figcaption><span>{% translate "Cauchy problem" %}</span></figcaption>
+  <div class="formula-body">\[x'(t)=f(t,x(t)),\quad x(t_{0})=x_{0}\]</div>
+</figure>
+
+<p>{% if LANG == "tr" %}Cauchy problemi için \(i\). adımdaki yerel hata şöyledir:{% else %}The local error in the \(i\)th step for the Cauchy problem is{% endif %}</p>
+
+<figure class="formula-card">
+  <figcaption><span>{% translate "Local error" %}</span></figcaption>
+  <div class="formula-body">\[|LE_{i}|:=|y_{i}-z(t_{i})|=\left|\dfrac{1}{2!}z''(\tau)h_{i}^{2}\right|,\quad \tau\in[t_{i-1},t_{i})\]</div>
+</figure>
+
+<p>{% if LANG == "tr" %}Çözümün varlığı ve tekliği biliniyorsa, integrasyonun her adımında yerel hata istenen hata seviyesi \(\delta_{L}\)'den küçük kalacak şekilde \(i\). adımdaki adım uzunluğu aşağıdaki gibi elde edilir.{% else %}If the existence and uniqueness of the solution are known, the step size in the \(i\)th step is obtained so that the local error stays below the desired error level \(\delta_{L}\) in every step of the integration:{% endif %}</p>
+
+<figure class="formula-card is-main">
+  <figcaption><span>{% translate "Step size" %}</span><span class="formula-tag">{% translate "Main formula" %}</span></figcaption>
+  <div class="formula-body">\[h_{i}= \sqrt{ \dfrac{2\delta_{L}}{M_{t_{i}}}}\]</div>
+  <p class="formula-note">{% if LANG == "tr" %}Bu seçimle \(|LE_{i}|\leq\frac{1}{2}M_{t_{i}}h_{i}^{2}=\delta_{L}\) olur.{% else %}With this choice \(|LE_{i}|\leq\frac{1}{2}M_{t_{i}}h_{i}^{2}=\delta_{L}\).{% endif %}</p>
+</figure>
+
+<h2>{% translate "Symbols" %}</h2>
+<dl class="var-list">
+  <div class="var-list-head" aria-hidden="true"><span>{% translate "Symbol" %}</span><span>{% translate "Meaning" %}</span></div>
+  <div class="var-row"><dt>\(\delta_{L}\)</dt><dd>{% if LANG == "tr" %}İstenen hata seviyesi.{% else %}The desired error level.{% endif %}</dd></div>
+  <div class="var-row"><dt>\(y_{i}\)</dt><dd>{% if LANG == "tr" %}\(i\). adımda elde edilen sayısal çözüm.{% else %}The numerical solution obtained in the \(i\)th step.{% endif %}</dd></div>
+  <div class="var-row"><dt>\(z(t)\)</dt><dd>{% if LANG == "tr" %}\([t_{i-1},t_{i})\) üzerinde aşağıdaki Cauchy probleminin çözümü:{% else %}The solution of the following Cauchy problem on \([t_{i-1},t_{i})\):{% endif %}\[z'(t)=f(t,z(t)),\ z(t_{i-1})=y_{i-1}\]</dd></div>
+  <div class="var-row"><dt>\(M_{t_{i}}\)</dt><dd>{% if LANG == "tr" %}\(z''\) için bir üst sınır:{% else %}An upper bound of \(z''\):{% endif %}\[\max_{\tau\in[t_{i-1},t_{i})}|z''(\tau)|\leq M_{t_{i}}\]</dd></div>
+</dl>
+
+<p class="theory-source mt-3"><i class="bi bi-book" aria-hidden="true"></i> Çelik Kızılkan 2004; Çelik Kızılkan and Aydın 2005</p>
+{% endblock %}

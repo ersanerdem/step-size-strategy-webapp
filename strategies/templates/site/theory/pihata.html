@@ -1,0 +1,34 @@
+{% extends "site/theory/_layout.html" %}
+{% load i18n %}
+
+{% block meta %}{% translate "Step Size Strategy Based on Picard Theorem and Error Analysis" as page_title %}{% translate "A step size strategy that combines Picard's theorem and error analysis for Cauchy problems whose solution is not known to exist. Formula and online solver." as page_description %}{% include "site/_meta.html" with schema="article" %}{% endblock %}
+
+{% block theory %}
+{% get_current_language as LANG %}
+<p>{% if LANG == "tr" %}Aşağıdaki Cauchy problemini göz önüne alalım. Problem \(D=\{(t,x): |t-t_{0}|\leq a,\ |x-x_{0}|\leq b\}\) bölgesinde tanımlıdır ve \(f\) türevlenebilir bir fonksiyondur.{% else %}Consider the Cauchy problem below on \(D=\{(t,x): |t-t_{0}|\leq a,\ |x-x_{0}|\leq b\}\), where \(f\) is a differentiable function.{% endif %}</p>
+
+<figure class="formula-card">
+  <figcaption><span>{% translate "Cauchy problem" %}</span></figcaption>
+  <div class="formula-body">\[x'(t)=f(t,x(t)),\quad x(t_{0})=x_{0}\]</div>
+</figure>
+
+<p>{% if LANG == "tr" %}Cauchy probleminin çözümünün varlığı bilinmiyorsa, \(i\). adımdaki adım uzunluğu aşağıdaki gibi elde edilir.{% else %}If the existence of the solution of the Cauchy problem is not known, the step size in the \(i\)th step is obtained as{% endif %}</p>
+
+<figure class="formula-card is-main">
+  <figcaption><span>{% translate "Step size" %}</span><span class="formula-tag">{% translate "Main formula" %}</span></figcaption>
+  <div class="formula-body">\[h_{i}= \min\left\{a, \frac{b_{0i-1}}{M_{i}}\right\}\]</div>
+</figure>
+
+<h2>{% translate "Symbols" %}</h2>
+<dl class="var-list">
+  <div class="var-list-head" aria-hidden="true"><span>{% translate "Symbol" %}</span><span>{% translate "Meaning" %}</span></div>
+  <div class="var-row"><dt>\(y_{i}\)</dt><dd>{% if LANG == "tr" %}\(i\). adımda elde edilen sayısal çözüm.{% else %}The numerical solution obtained in the \(i\)th step.{% endif %}</dd></div>
+  <div class="var-row"><dt>\(z(t)\)</dt><dd>{% if LANG == "tr" %}\([t_{i-1},t_{i})\) üzerinde aşağıdaki Cauchy probleminin çözümü:{% else %}The solution of the following Cauchy problem on \([t_{i-1},t_{i})\):{% endif %}\[z'(t)=f(t,z(t)),\ z(t_{i-1})=y_{i-1}\]</dd></div>
+  <div class="var-row"><dt>\(b_{i-1}\)</dt><dd>{% if LANG == "tr" %}\(|z-y_{i-1}|\) için bir üst sınır.{% else %}An upper bound of \(|z-y_{i-1}|\).{% endif %}</dd></div>
+  <div class="var-row"><dt>\(b_{0i-1}\)</dt><dd>{% if LANG == "tr" %}Arama dikdörtgeninin küçülen yarı genişliği:{% else %}The shrinking half-width of the search rectangle:{% endif %}\[b_{0i-1}=\min\{b_{0i-2},\ b_{i-1}\}\]</dd></div>
+  <div class="var-row"><dt>\(D_{i-1}\)</dt><dd>{% if LANG == "tr" %}Bir sonraki adımın arandığı dikdörtgen:{% else %}The rectangle in which the next step is searched:{% endif %}\[D_{i-1}=\{(t,z): |t-t_{i-1}|\leq a,\ |z-y_{i-1}|\leq b_{0i-1}\}\]</dd></div>
+  <div class="var-row"><dt>\(M_{i}\)</dt><dd>{% if LANG == "tr" %}\(|f|\) için \(D_{i-1}\) üzerinde bir üst sınır:{% else %}An upper bound of \(|f|\) on \(D_{i-1}\):{% endif %}\[\max_{(t,z)\in D_{i-1}}|f(t,z)|\leq M_{i}\]</dd></div>
+</dl>
+
+<p class="theory-source mt-3"><i class="bi bi-book" aria-hidden="true"></i> Çelik Kızılkan 2004; Çelik Kızılkan and Aydın 2011</p>
+{% endblock %}

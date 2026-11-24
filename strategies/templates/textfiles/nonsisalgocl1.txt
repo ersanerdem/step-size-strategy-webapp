@@ -1,1 +1,0 @@
-i      hi        ti     ||X(ti)||    x1(ti)    x2(ti)

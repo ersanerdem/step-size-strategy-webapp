@@ -1,0 +1,928 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: stepsizestrategies\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: catalog.py:31
+msgid "Step Size Strategy for Systems of Linear Differential Equations"
+msgstr "Lineer Diferansiyel Denklem Sistemleri için Adım Uzunluğu Stratejisi"
+
+#: catalog.py:32
+msgid "Step Size Strategy for Systems of Non-Linear Differential Equations"
+msgstr "Lineer Olmayan Diferansiyel Denklem Sistemleri için Adım Uzunluğu Stratejisi"
+
+#: catalog.py:33
+msgid "For X' = AX. The step keeps the local error of every Euler step below δ; the local error is measured with the matrix exponential."
+msgstr "X' = AX için. Adım uzunluğu, her Euler adımının yerel hatasını δ'nın altında tutar; yerel hata matris üsteliyle ölçülür."
+
+#: catalog.py:34
+msgid "For X' = AX + φ(t, X). The step keeps the local error of every Euler step below δ, using bounds for X, φ and dφ/dt."
+msgstr "X' = AX + φ(t, X) için. Adım uzunluğu; X, φ ve dφ/dt için sınırlar kullanarak her Euler adımının yerel hatasını δ'nın altında tutar."
+
+#: catalog.py:15
+msgid "Step Size Strategy Based on Picard Theorem"
+msgstr "Picard Teoremine Dayalı Adım Uzunluğu Stratejisi"
+
+#: catalog.py:16
+msgid "Step Size Strategy Based on Error Analysis"
+msgstr "Hata Analizine Dayalı Adım Uzunluğu Stratejisi"
+
+#: catalog.py:17
+msgid "Step Size Strategy Based on Picard Theorem and Error Analysis"
+msgstr "Picard Teoremi ve Hata Analizine Dayalı Adım Uzunluğu Stratejisi"
+
+#: catalog.py:20
+msgid "Picard theorem"
+msgstr "Picard teoremi"
+
+#: catalog.py:21
+msgid "Error analysis"
+msgstr "Hata analizi"
+
+#: catalog.py:22
+msgid "Picard theorem + error analysis"
+msgstr "Picard teoremi + hata analizi"
+
+#: catalog.py:25
+msgid "For x' = f(t, x). The step is chosen so that the next point stays inside the rectangle where Picard's theorem guarantees a unique solution."
+msgstr "x' = f(t, x) için. Adım uzunluğu, bir sonraki noktanın Picard teoreminin tek çözüm garanti ettiği dikdörtgenin içinde kalacağı şekilde seçilir."
+
+#: catalog.py:26
+msgid "For x' = f(t, x). The step is chosen so that the local error of every Euler step stays below the tolerance δ."
+msgstr "x' = f(t, x) için. Adım uzunluğu, her Euler adımının yerel hatası δ toleransının altında kalacak şekilde seçilir."
+
+#: catalog.py:27
+msgid "For x' = f(t, x) when existence is not known in advance. Combines the Picard bound with an error estimate that shrinks the search rectangle."
+msgstr "Çözümün varlığı önceden bilinmeyen x' = f(t, x) problemleri için. Picard sınırını, arama dikdörtgenini küçülten bir hata tahminiyle birleştirir."
+
+#: catalog.py:173
+msgid "The next point stays in the rectangle of Picard's theorem."
+msgstr "Bir sonraki nokta Picard teoreminin dikdörtgeni içinde kalır."
+
+#: catalog.py:174
+msgid "The local error of every step stays below δ_L."
+msgstr "Her adımın yerel hatası δ_L'nin altında kalır."
+
+#: catalog.py:175
+msgid "Picard's rectangle, shrunk with an error estimate in every step."
+msgstr "Picard dikdörtgeni, her adımda bir hata tahminiyle daraltılır."
+
+#: catalog.py:180
+msgid "Existence and uniqueness of the solution are known."
+msgstr "Çözümün varlığı ve tekliği biliniyor."
+
+#: catalog.py:182
+msgid "Existence of the solution need not be known."
+msgstr "Çözümün varlığının bilinmesi gerekmez."
+
+#: catalog.py:183
+msgid "Constant coefficient matrix A."
+msgstr "Sabit katsayılı A matrisi."
+
+#: catalog.py:184
+msgid "φ is continuously differentiable."
+msgstr "φ sürekli türevlenebilir."
+
+#: catalog.py:142
+msgid "Linear systems"
+msgstr "Lineer sistemler"
+
+#: catalog.py:142
+msgid "Non-linear systems"
+msgstr "Lineer olmayan sistemler"
+
+#: catalog.py:147
+msgid "Single equation"
+msgstr "Tek denklem"
+
+#: catalog.py:148
+msgid "Linear system"
+msgstr "Lineer sistem"
+
+#: catalog.py:148
+msgid "Non-linear system"
+msgstr "Lineer olmayan sistem"
+
+#: catalog.py:219
+msgid "Project"
+msgstr "Proje"
+
+#: catalog.py:213
+msgid "Theory"
+msgstr "Teori"
+
+#: catalog.py:215
+msgid "Solver"
+msgstr "Çözücü"
+
+#: catalog.py:221
+msgid "Home"
+msgstr "Ana sayfa"
+
+#: catalog.py:222
+msgid "About"
+msgstr "Hakkında"
+
+#: charts.py:32
+msgid "Numerical solution"
+msgstr "Sayısal çözüm"
+
+#: charts.py:33
+msgid "Step size"
+msgstr "Adım uzunluğu"
+
+#: charts.py:41
+msgid "Components of the solution"
+msgstr "Çözümün bileşenleri"
+
+#: charts.py:42
+msgid "Norm of the numerical solution"
+msgstr "Sayısal çözümün normu"
+
+#: charts.py:54
+msgid "Phase plane"
+msgstr "Faz düzlemi"
+
+#: charts.py:49
+msgid "Local error"
+msgstr "Yerel hata"
+
+#: charts.py:60
+msgid "Trajectory in 3D"
+msgstr "3B yörünge"
+
+#: context_processors.py:30
+msgid "Gazi University, Ankara, September 2021"
+msgstr "Gazi Üniversitesi, Ankara, Eylül 2021"
+
+#: context_processors.py:36
+msgid "Selçuk University, Konya, July 2019"
+msgstr "Selçuk Üniversitesi, Konya, Temmuz 2019"
+
+#: context_processors.py:42
+msgid "Harran University, Şanlıurfa, May 11–13, 2017"
+msgstr "Harran Üniversitesi, Şanlıurfa, 11–13 Mayıs 2017"
+
+#: context_processors.py:50
+msgid "Master's student (2017), Necmettin Erbakan University, Institute of Science, Department of Mathematics, Konya"
+msgstr "Yüksek lisans öğrencisi (2017), Necmettin Erbakan Üniversitesi, Fen Bilimleri Enstitüsü, Matematik Anabilim Dalı, Konya"
+
+#: context_processors.py:56
+msgid "Assistant Professor (2017), Necmettin Erbakan University, Faculty of Science, Department of Mathematics and Computer Science, Konya"
+msgstr "Dr. Öğr. Üyesi (2017), Necmettin Erbakan Üniversitesi, Fen Fakültesi, Matematik-Bilgisayar Bölümü, Konya"
+
+#: context_processors.py:62
+msgid "Assistant Professor (2017), Necmettin Erbakan University, Faculty of Engineering and Architecture, Department of Computer Engineering, Konya"
+msgstr "Dr. Öğr. Üyesi (2017), Necmettin Erbakan Üniversitesi, Mühendislik ve Mimarlık Fakültesi, Bilgisayar Mühendisliği Bölümü, Konya"
+
+#: forms.py:90
+msgid "Length of the interval [t₀, t₀ + a]; also the half-width of the search rectangle in t."
+msgstr "[t₀, t₀ + a] aralığının uzunluğu; aynı zamanda arama dikdörtgeninin t yönündeki yarı genişliği."
+
+#: forms.py:91
+msgid "Half-width of the search rectangle around the solution."
+msgstr "Çözüm etrafındaki arama dikdörtgeninin yarı genişliği."
+
+#: forms.py:92
+msgid "Minimum allowed step size. The integration stops if the step falls below it."
+msgstr "İzin verilen en küçük adım uzunluğu. Adım bunun altına düşerse integrasyon durur."
+
+#: forms.py:52
+msgid "Must be greater than 0."
+msgstr "0'dan büyük olmalı."
+
+#: forms.py:111
+msgid "Initial time."
+msgstr "Başlangıç zamanı."
+
+#: forms.py:112
+msgid "Length of the interval [t₀, t₀ + a]."
+msgstr "[t₀, t₀ + a] aralığının uzunluğu."
+
+#: forms.py:117
+msgid "Desired local error level of every step."
+msgstr "Her adım için istenen yerel hata seviyesi."
+
+#: forms.py:54
+msgid "Must be at least %(min)s."
+msgstr "En az %(min)s olmalı."
+
+#: forms.py:97
+msgid "Right-hand side. Use t, x, + − * / ^ and sin, cos, exp, log, sqrt …"
+msgstr "Sağ taraf. t, x, + − * / ^ ve sin, cos, exp, log, sqrt … kullanabilirsiniz."
+
+#: forms.py:100
+msgid "Initial value x(t₀)."
+msgstr "Başlangıç değeri x(t₀)."
+
+#: numerics.py:82
+msgid "a must be greater than 0."
+msgstr "a, 0'dan büyük olmalı."
+
+#: numerics.py:84
+msgid "b must be greater than 0."
+msgstr "b, 0'dan büyük olmalı."
+
+#: numerics.py:86
+msgid "h* must not be negative."
+msgstr "h* negatif olamaz."
+
+#: numerics.py:88
+msgid "The error tolerance must be greater than 0."
+msgstr "Hata toleransı 0'dan büyük olmalı."
+
+#: numerics.py:127
+msgid "The function is not finite on the rectangle around the current point (division by zero, logarithm of a negative number, overflow ...)."
+msgstr "Fonksiyon, mevcut noktanın etrafındaki dikdörtgende sonlu değil (sıfıra bölme, negatif sayının logaritması, taşma ...)."
+
+#: numerics.py:139
+msgid "The function value is not finite at a computed point."
+msgstr "Fonksiyonun değeri hesaplanan bir noktada sonlu değil."
+
+#: numerics.py:145
+msgid "The solution became infinite or undefined (the solution blows up)."
+msgstr "Çözüm sonsuz ya da tanımsız oldu (çözüm patlıyor)."
+
+#: numerics.py:150
+msgid "More than %(n)d steps would be needed. Increase h*, reduce a, or increase the error tolerance."
+msgstr "%(n)d adımdan fazlası gerekecek. h* değerini büyütün, a'yı küçültün ya da hata toleransını artırın."
+
+#: numerics.py:279
+msgid "Matrix and initial vector sizes do not match."
+msgstr "Matris ile başlangıç vektörünün boyutları uyuşmuyor."
+
+#: numerics.py:400
+msgid "Matrix, vector and phi sizes do not match."
+msgstr "Matris, vektör ve φ boyutları uyuşmuyor."
+
+#: numerics.py:419
+msgid "phi (or its derivative) is not finite at the bounding point."
+msgstr "φ (ya da türevi) sınır noktasında sonlu değil."
+
+#: numerics.py:429
+msgid "phi is not finite at a computed point."
+msgstr "φ hesaplanan bir noktada sonlu değil."
+
+#: presets.py:31
+msgid "Linear test problem  x' = t + x"
+msgstr "Lineer test problemi  x' = t + x"
+
+#: presets.py:32
+msgid "The example used in the original papers. Exact solution: x(t) = 2eᵗ − t − 1."
+msgstr "Orijinal makalelerde kullanılan örnek. Tam çözüm: x(t) = 2eᵗ − t − 1."
+
+#: presets.py:37
+msgid "Logistic population growth"
+msgstr "Lojistik nüfus artışı"
+
+#: presets.py:38
+msgid "x' = x(1 − x): growth that saturates at the carrying capacity 1."
+msgstr "x' = x(1 − x): taşıma kapasitesi 1'de doyuma ulaşan büyüme."
+
+#: presets.py:43
+msgid "Newton's law of cooling"
+msgstr "Newton'un soğuma yasası"
+
+#: presets.py:44
+msgid "A 90 °C object in a 20 °C room: x' = −0.3 (x − 20)."
+msgstr "20 °C'lik bir odada 90 °C'lik bir cisim: x' = −0.3 (x − 20)."
+
+#: presets.py:49
+msgid "Radioactive decay"
+msgstr "Radyoaktif bozunma"
+
+#: presets.py:50
+msgid "x' = −0.5 x with 100 units at t = 0."
+msgstr "t = 0'da 100 birim ile x' = −0.5 x."
+
+#: presets.py:55
+msgid "Riccati equation"
+msgstr "Riccati denklemi"
+
+#: presets.py:56
+msgid "x' = t² + x², a classic non-linear test problem without an elementary solution."
+msgstr "x' = t² + x², elementer fonksiyonlarla çözümü olmayan klasik bir lineer olmayan test problemi."
+
+#: presets.py:61
+msgid "RC circuit with sinusoidal source"
+msgstr "Sinüzoidal kaynaklı RC devresi"
+
+#: presets.py:62
+msgid "Capacitor voltage: x' = cos(t) − x (RC = 1 s)."
+msgstr "Kondansatör gerilimi: x' = cos(t) − x (RC = 1 s)."
+
+#: presets.py:71
+msgid "Harmonic oscillator"
+msgstr "Harmonik osilatör"
+
+#: presets.py:72
+msgid "x'' + x = 0 written as a first-order system (position, velocity)."
+msgstr "x'' + x = 0 denkleminin birinci mertebe sistem hâli (konum, hız)."
+
+#: presets.py:77
+msgid "Mass–spring–damper"
+msgstr "Kütle–yay–sönümleyici"
+
+#: presets.py:78
+msgid "m = 1 kg, c = 0.5 N·s/m, k = 4 N/m:  x'' + 0.5 x' + 4x = 0."
+msgstr "m = 1 kg, c = 0.5 N·s/m, k = 4 N/m:  x'' + 0.5 x' + 4x = 0."
+
+#: presets.py:83
+msgid "Series RLC circuit"
+msgstr "Seri RLC devresi"
+
+#: presets.py:84
+msgid "L = 0.5 H, R = 1 Ω, C = 0.2 F. State: charge q and current i."
+msgstr "L = 0.5 H, R = 1 Ω, C = 0.2 F. Durum: yük q ve akım i."
+
+#: presets.py:91
+msgid "Radioactive decay chain A → B → C"
+msgstr "Radyoaktif bozunma zinciri A → B → C"
+
+#: presets.py:92
+msgid "k₁ = 1, k₂ = 0.5. Starts with only A."
+msgstr "k₁ = 1, k₂ = 0.5. Başlangıçta yalnızca A var."
+
+#: presets.py:100
+msgid "Third-order equation"
+msgstr "Üçüncü mertebe denklem"
+
+#: presets.py:101
+msgid "x''' + 3x'' + 3x' + x = 0 (critically damped), state (x, x', x'')."
+msgstr "x''' + 3x'' + 3x' + x = 0 (kritik sönümlü), durum (x, x', x'')."
+
+#: presets.py:111
+msgid "Two coupled masses"
+msgstr "Bağlı iki kütle"
+
+#: presets.py:112
+msgid "Two equal masses between three springs. State (x₁, x₂, v₁, v₂)."
+msgstr "Üç yay arasında iki eşit kütle. Durum (x₁, x₂, v₁, v₂)."
+
+#: presets.py:125
+msgid "Damped pendulum"
+msgstr "Sönümlü sarkaç"
+
+#: presets.py:126
+msgid "θ'' + 0.2θ' + sin θ = 0, starting at θ = 1 rad. Here x = θ, y = θ'."
+msgstr "θ'' + 0.2θ' + sin θ = 0, θ = 1 rad'dan başlar. Burada x = θ, y = θ'."
+
+#: presets.py:131
+msgid "Lotka–Volterra predator–prey"
+msgstr "Lotka–Volterra av–avcı modeli"
+
+#: presets.py:132
+msgid "x: prey, y: predator.  x' = x − 0.5xy,  y' = −0.5y + 0.25xy."
+msgstr "x: av, y: avcı.  x' = x − 0.5xy,  y' = −0.5y + 0.25xy."
+
+#: presets.py:137
+msgid "Van der Pol oscillator"
+msgstr "Van der Pol osilatörü"
+
+#: presets.py:138
+msgid "x'' − (1 − x²)x' + x = 0 (μ = 1), a self-sustained oscillation from electronics."
+msgstr "x'' − (1 − x²)x' + x = 0 (μ = 1), elektronikten bilinen kendi kendini sürdüren bir salınım."
+
+#: presets.py:145
+msgid "SIR epidemic model"
+msgstr "SIR salgın modeli"
+
+#: presets.py:146
+msgid "Fractions of susceptible (x), infected (y) and recovered (z); β = 0.5, γ = 0.1 per day."
+msgstr "Duyarlı (x), enfekte (y) ve iyileşen (z) oranları; günlük β = 0.5, γ = 0.1."
+
+#: presets.py:156
+msgid "SEIR epidemic model"
+msgstr "SEIR salgın modeli"
+
+#: presets.py:157
+msgid "Susceptible x, exposed y, infected z, recovered w; β = 0.5, σ = 0.2, γ = 0.1 per day."
+msgstr "Duyarlı x, maruz kalan y, enfekte z, iyileşen w; günlük β = 0.5, σ = 0.2, γ = 0.1."
+
+#: safeexpr.py:88
+msgid "The expression cannot be empty."
+msgstr "İfade boş olamaz."
+
+#: safeexpr.py:146
+msgid "Unsupported syntax in expression."
+msgstr "İfadede desteklenmeyen bir yazım var."
+
+#: safeexpr.py:243
+msgid "The number must be finite."
+msgstr "Sayı sonlu olmalı."
+
+#: safeexpr.py:90
+msgid "The expression may have at most %(n)d characters."
+msgstr "İfade en fazla %(n)d karakter olabilir."
+
+#: safeexpr.py:151
+msgid "The expression produces a non-finite or complex constant."
+msgstr "İfade sonlu olmayan ya da karmaşık bir sabit üretiyor."
+
+#: safeexpr.py:162
+msgid "Division by zero."
+msgstr "Sıfıra bölme."
+
+#: safeexpr.py:196
+msgid "Unknown function."
+msgstr "Bilinmeyen fonksiyon."
+
+#: safeexpr.py:215
+msgid "Variable names clash with reserved names: %(names)s"
+msgstr "Değişken adları ayrılmış adlarla çakışıyor: %(names)s"
+
+#: safeexpr.py:220
+msgid "Invalid expression (use * for multiplication, e.g. 2*x)."
+msgstr "Geçersiz ifade (çarpma için * kullanın, örneğin 2*x)."
+
+#: safeexpr.py:224
+msgid "Expression is nested too deeply."
+msgstr "İfade çok fazla iç içe."
+
+#: safeexpr.py:98
+msgid "Character not allowed in expression: %(char)s"
+msgstr "İfadede izin verilmeyen karakter: %(char)s"
+
+#: safeexpr.py:125
+msgid "Only numbers are allowed."
+msgstr "Yalnızca sayılar kullanılabilir."
+
+#: safeexpr.py:136
+msgid "Unknown name: %(name)s"
+msgstr "Bilinmeyen ad: %(name)s"
+
+#: safeexpr.py:198
+msgid "%(name)s() takes exactly one argument."
+msgstr "%(name)s() tam olarak bir argüman alır."
+
+#: safeexpr.py:241
+msgid "Enter a real number."
+msgstr "Bir reel sayı girin."
+
+#: safeexpr.py:129
+msgid "Number too large."
+msgstr "Sayı çok büyük."
+
+#: safeexpr.py:177
+msgid "Constant value out of range."
+msgstr "Sabit değer aralığın dışında."
+
+#: safeexpr.py:206
+msgid "%(name)s(%(value)s) is not defined."
+msgstr "%(name)s(%(value)s) tanımlı değil."
+
+#: services.py:82
+msgid "The integration stopped because the step size became smaller than h*."
+msgstr "Adım uzunluğu h* değerinin altına düştüğü için integrasyon durdu."
+
+#: services.py:54
+msgid "Steps"
+msgstr "Adım sayısı"
+
+#: services.py:55
+msgid "Reached t"
+msgstr "Ulaşılan t"
+
+#: services.py:69
+msgid "Computation time"
+msgstr "Hesaplama süresi"
+
+#: services.py:84
+msgid "No step was taken."
+msgstr "Hiç adım atılmadı."
+
+#: services.py:59
+msgid "Smallest step"
+msgstr "En küçük adım"
+
+#: services.py:60
+msgid "Largest step"
+msgstr "En büyük adım"
+
+#: services.py:63
+msgid "Final value x"
+msgstr "Son değer x"
+
+#: services.py:66
+msgid "Final value X"
+msgstr "Son değer X"
+
+#: services.py:68
+msgid "Largest local error"
+msgstr "En büyük yerel hata"
+
+#: views.py:114
+msgid "Page {page} of {pages} · {rows} steps"
+msgstr "Sayfa {page} / {pages} · {rows} adım"
+
+#: views.py:115
+msgid "Connection problem. Please check your internet connection and try again."
+msgstr "Bağlantı sorunu. İnternet bağlantınızı kontrol edip tekrar deneyin."
+
+#: views.py:116
+msgid "The server could not complete the request. Please try again."
+msgstr "Sunucu isteği tamamlayamadı. Lütfen tekrar deneyin."
+
+#: views.py:188
+msgid "Unknown problem."
+msgstr "Bilinmeyen problem."
+
+#: views.py:191
+msgid "Unknown field."
+msgstr "Bilinmeyen alan."
+
+#: views.py:82
+msgid "The computation failed for these inputs. Please check them and try again."
+msgstr "Bu girdilerle hesaplama yapılamadı. Lütfen kontrol edip tekrar deneyin."
+
+#: views.py:121
+msgid "Online Euler method solver"
+msgstr "Online Euler yöntemi çözücü"
+
+#: views.py:122
+msgid "Free and online, with interactive charts and ready-made examples."
+msgstr "Ücretsiz ve online; etkileşimli grafikler ve hazır örneklerle."
+
+#: _auth_aside.html:7
+msgid "Your free account"
+msgstr "Ücretsiz hesabınız"
+
+#: _auth_aside.html:9
+msgid "Download every table of steps as an Excel file."
+msgstr "Her adım tablosunu Excel dosyası olarak indirin."
+
+#: _auth_aside.html:10
+msgid "Save the interactive charts as high-resolution images."
+msgstr "Etkileşimli grafikleri yüksek çözünürlüklü resim olarak kaydedin."
+
+#: _auth_aside.html:11
+msgid "Free of charge."
+msgstr "Tamamen ücretsiz."
+
+#: _sidebar.html:13
+msgid "Close"
+msgstr "Kapat"
+
+#: _sidebar.html:16
+msgid "Pages"
+msgstr "Sayfalar"
+
+#: _sidebar.html:35
+msgid "Language"
+msgstr "Dil"
+
+#: _sidebar.html:44
+msgid "Admin"
+msgstr "Yönetim paneli"
+
+#: _sidebar.html:47
+msgid "Log out"
+msgstr "Çıkış yap"
+
+#: _sidebar.html:51
+msgid "Log in"
+msgstr "Giriş yap"
+
+#: _sidebar.html:52
+msgid "Register"
+msgstr "Kayıt ol"
+
+#: about.html:4
+msgid "About the project"
+msgstr "Proje hakkında"
+
+#: about.html:4
+msgid "Step Size Strategies: a master's thesis project at Necmettin Erbakan University. The team, publications and conference."
+msgstr "Adım Uzunluğu Stratejileri: Necmettin Erbakan Üniversitesi'nde bir yüksek lisans tez projesi. Ekip, yayınlar ve konferans."
+
+#: about.html:10
+msgid "This web application was first developed in 2017 as part of a master's thesis at Necmettin Erbakan University, to make the step size strategies developed by the research group usable online. In 2026 it was moved to Django 6 and redesigned with interactive charts, ready-made examples and a Turkish interface."
+msgstr "Bu web uygulaması ilk olarak 2017 yılında Necmettin Erbakan Üniversitesi'nde bir yüksek lisans tezi kapsamında, araştırma grubunun geliştirdiği adım uzunluğu stratejilerini çevrimiçi kullanılabilir kılmak için geliştirildi. 2026'da Django 6'ya taşındı ve etkileşimli grafikler, hazır örnekler ve Türkçe arayüzle yeniden tasarlandı."
+
+#: about.html:14
+msgid "Thesis and article"
+msgstr "Tez ve makale"
+
+#: about.html:19
+msgid "Master's thesis"
+msgstr "Yüksek lisans tezi"
+
+#: about.html:23
+msgid "Advisor"
+msgstr "Danışman"
+
+#: about.html:24
+msgid "Necmettin Erbakan University, Graduate School of Natural and Applied Sciences, Department of Mathematics, Konya, June 2019"
+msgstr "Necmettin Erbakan Üniversitesi, Fen Bilimleri Enstitüsü, Matematik Anabilim Dalı, Konya, Haziran 2019"
+
+#: about.html:28
+msgid "Read the thesis (PDF)"
+msgstr "Tezi oku (PDF)"
+
+#: about.html:37
+msgid "Journal article"
+msgstr "Dergi makalesi"
+
+#: about.html:45
+msgid "Read the article (PDF)"
+msgstr "Makaleyi oku (PDF)"
+
+#: about.html:56
+msgid "Team"
+msgstr "Ekip"
+
+#: about.html:78
+msgid "Publications"
+msgstr "Yayınlar"
+
+#: about.html:89
+msgid "Conferences"
+msgstr "Konferanslar"
+
+#: about.html:90
+msgid "International Conference on Mathematics and Mathematics Education (ICMME)"
+msgstr "Uluslararası Matematik ve Matematik Eğitimi Konferansı (ICMME)"
+
+#: base.html:8
+msgid "Online ODE solver with Euler's method and variable step size"
+msgstr "Euler yöntemi ve değişken adım uzunluğu ile online diferansiyel denklem çözücü"
+
+#: base.html:9
+msgid "Free online solver for ordinary differential equations and systems: Euler's method with variable step size strategies based on Picard's theorem and error analysis. Interactive charts, ready-made examples, Excel export."
+msgstr "Adi diferansiyel denklemler ve sistemler için ücretsiz online çözücü: Picard teoremine ve hata analizine dayalı değişken adım uzunluğu stratejileriyle Euler yöntemi. Etkileşimli grafikler, hazır örnekler, Excel çıktısı."
+
+#: base.html:46
+msgid "Skip to content"
+msgstr "İçeriğe geç"
+
+#: base.html:49
+msgid "Main menu"
+msgstr "Ana menü"
+
+#: base.html:52
+msgid "Menu"
+msgstr "Menü"
+
+#: base.html:61
+msgid "Solvers"
+msgstr "Çözücüler"
+
+#: base.html:78
+msgid "Switch light / dark theme"
+msgstr "Açık / koyu tema"
+
+#: base.html:125
+msgid "Master's thesis project: variable step size strategies for the numerical solution of ODEs."
+msgstr "Yüksek lisans tez projesi: adi diferansiyel denklemlerin sayısal çözümü için değişken adım uzunluğu stratejileri."
+
+#: base.html:128
+msgid "Built with"
+msgstr "Kullanılan araçlar:"
+
+#: index.html:9
+msgid "Online ODE solver · Euler's method"
+msgstr "Online diferansiyel denklem çözücü · Euler yöntemi"
+
+#: index.html:11
+msgid "Solve ordinary differential equations and systems with variable step size strategies based on Picard's theorem and on error analysis — and see every step."
+msgstr "Adi diferansiyel denklemleri ve sistemleri Picard teoremine ve hata analizine dayalı değişken adım uzunluğu stratejileriyle çözün — her adımı görün."
+
+#: index.html:14
+msgid "Start solving"
+msgstr "Çözmeye başla"
+
+#: index.html:15
+msgid "Read the theory"
+msgstr "Teoriyi oku"
+
+#: index.html:24
+msgid "Strategies at a glance"
+msgstr "Bir bakışta stratejiler"
+
+#: index.html:25
+msgid "Five step size strategies, each with its step size formula, a solver and its theory."
+msgstr "Beş adım uzunluğu stratejisi; her biri adım formülü, çözücüsü ve teorisiyle."
+
+#: index.html:43
+msgid "Open the solver"
+msgstr "Çözücüyü aç"
+
+#: index.html:55
+msgid "Not sure which one?"
+msgstr "Hangisini seçeceğinizden emin değil misiniz?"
+
+#: index.html:57
+msgid "Existence and uniqueness known: Picard theorem or error analysis."
+msgstr "Varlık ve teklik biliniyorsa: Picard teoremi ya da hata analizi."
+
+#: index.html:58
+msgid "Existence not known: Picard theorem + error analysis."
+msgstr "Varlık bilinmiyorsa: Picard teoremi + hata analizi."
+
+#: index.html:59
+msgid "Systems of equations: the linear or non-linear system strategy."
+msgstr "Denklem sistemleri için: lineer ya da lineer olmayan sistem stratejisi."
+
+#: index.html:68
+msgid "Euler's method with a variable step size"
+msgstr "Değişken adım uzunluklu Euler yöntemi"
+
+#: index.html:71
+msgid "Euler's method approximates the solution of $x' = f(t,x)$ step by step: $x_{i+1} = x_i + h_i f(t_i, x_i)$. With a fixed step $h$, a step small enough for the steep parts of the solution wastes work where the solution is flat, and a large step loses accuracy where the solution changes quickly."
+msgstr "Euler yöntemi $x' = f(t,x)$ denkleminin çözümüne adım adım yaklaşır: $x_{i+1} = x_i + h_i f(t_i, x_i)$. Sabit bir $h$ adımında, çözümün dik bölümleri için yeterince küçük bir adım, çözümün düz olduğu yerlerde boşuna iş yaptırır; büyük bir adım ise çözümün hızla değiştiği yerlerde doğruluğu kaybeder."
+
+#: index.html:74
+msgid "A step size strategy chooses $h_i$ anew in every step from bounds of the problem: so that the next point stays where Picard's theorem guarantees a unique solution, or so that the local error stays below a chosen level $\\delta$. Here you can try these strategies on your own equations and on classical engineering models, and watch the step size adapt."
+msgstr "Bir adım uzunluğu stratejisi, $h_i$ değerini her adımda problemin sınırlarından yeniden seçer: bir sonraki nokta Picard teoreminin tek çözüm garanti ettiği bölgede kalsın ya da yerel hata seçilen bir $\\delta$ seviyesinin altında kalsın diye. Burada bu stratejileri kendi denklemlerinizde ve klasik mühendislik modellerinde deneyebilir, adım uzunluğunun nasıl uyum sağladığını izleyebilirsiniz."
+
+#: index.html:84
+msgid "How it works"
+msgstr "Nasıl çalışır?"
+
+#: index.html:87
+msgid "Pick a strategy and an example"
+msgstr "Bir strateji ve örnek seçin"
+
+#: index.html:88
+msgid "Every solver page has ready-made engineering examples, or type your own function — a live preview shows how it is read."
+msgstr "Her çözücü sayfasında hazır mühendislik örnekleri var; isterseniz kendi fonksiyonunuzu yazın — canlı önizleme nasıl okunduğunu gösterir."
+
+#: index.html:92
+msgid "Solve"
+msgstr "Çöz"
+
+#: index.html:93
+msgid "Euler's method runs with a step size chosen by the strategy at every step."
+msgstr "Euler yöntemi, her adımda stratejinin seçtiği adım uzunluğuyla çalışır."
+
+#: index.html:97
+msgid "Explore the result"
+msgstr "Sonucu inceleyin"
+
+#: index.html:98
+msgid "Zoom into interactive charts, check the step sizes and local errors, and download the full table as Excel."
+msgstr "Etkileşimli grafiklerde yakınlaştırın, adım uzunluklarını ve yerel hataları inceleyin, tablonun tamamını Excel olarak indirin."
+
+#: login.html:4
+msgid "Log in to Step Size Strategies."
+msgstr "Adım Uzunluğu Stratejileri'ne giriş yapın."
+
+#: login.html:14
+msgid "Welcome back."
+msgstr "Tekrar hoş geldiniz."
+
+#: login.html:19
+msgid "Invalid username or password."
+msgstr "Kullanıcı adı veya şifre hatalı."
+
+#: login.html:22
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+#: login.html:27
+msgid "Password"
+msgstr "Şifre"
+
+#: login.html:33
+msgid "No account yet?"
+msgstr "Hesabınız yok mu?"
+
+#: register.html:4
+msgid "Create a free account to download results as Excel files and charts as images."
+msgstr "Sonuçları Excel dosyası, grafikleri resim olarak indirmek için ücretsiz hesap açın."
+
+#: register.html:14
+msgid "All fields are required."
+msgstr "Tüm alanların doldurulması zorunludur."
+
+#: register.html:39
+msgid "Already registered?"
+msgstr "Zaten kayıtlı mısınız?"
+
+#: solver.html:35
+msgid "Input"
+msgstr "Girdi"
+
+#: solver.html:37
+msgid "Load an example"
+msgstr "Örnek yükle"
+
+#: solver.html:38
+msgid "Load an example…"
+msgstr "Örnek yükle…"
+
+#: solver.html:52
+msgid "Problem"
+msgstr "Problem"
+
+#: solver.html:106
+msgid "Variables"
+msgstr "Değişkenler"
+
+#: solver.html:106
+msgid "functions"
+msgstr "fonksiyonlar"
+
+#: solver.html:121
+msgid "Decimal comma or point both work (0,5 = 0.5); pi and 1e-3 are accepted."
+msgstr "Ondalık için virgül de nokta da kullanılabilir (0,5 = 0.5); pi ve 1e-3 gibi yazımlar da kabul edilir."
+
+#: solver.html:131
+msgid "Excel file"
+msgstr "Excel dosyası"
+
+#: solver.html:136
+msgid "to download results as Excel and charts as images."
+msgstr "yaparak sonuçları Excel, grafikleri resim olarak indirebilirsiniz."
+
+#: solver.html:146
+msgid "Results"
+msgstr "Sonuçlar"
+
+#: solver.html:150
+msgid "No result yet"
+msgstr "Henüz sonuç yok"
+
+#: solver.html:151
+msgid "Choose an example from the list or enter your own values, then press Solve. Charts, a summary and the full table of steps will appear here."
+msgstr "Listeden bir örnek seçin ya da kendi değerlerinizi girip Çöz'e basın. Grafikler, özet ve adımların tam tablosu burada görünecek."
+
+#: solver.html:160
+msgid "Charts"
+msgstr "Grafikler"
+
+#: solver.html:165
+msgid "Table"
+msgstr "Tablo"
+
+#: solver.html:182
+msgid "Previous"
+msgstr "Önceki"
+
+#: solver.html:183
+msgid "Next"
+msgstr "Sonraki"
+
+#: _layout.html:32
+msgid "Step rule"
+msgstr "Adım kuralı"
+
+#: _layout.html:33
+msgid "Requirement"
+msgstr "Koşul"
+
+#: _layout.html:34
+msgid "Source"
+msgstr "Kaynak"
+
+#: _layout.html:44
+msgid "Try it in the solver"
+msgstr "Çözücüde deneyin"
+
+#: _layout.html:45
+msgid "Each card opens the solver with the example loaded and solved."
+msgstr "Her kart, örneği yüklenmiş ve çözülmüş olarak çözücüyü açar."
+
+#: hatanalizi.html:4
+msgid "Error analysis based step size strategy for Euler's method: each step keeps the local error below δ. Formula, explanation and a free online solver."
+msgstr "Euler yöntemi için hata analizine dayalı adım uzunluğu stratejisi: her adım yerel hatayı δ'nın altında tutar. Formül, açıklama ve ücretsiz online çözücü."
+
+#: hatanalizi.html:11
+msgid "Cauchy problem"
+msgstr "Cauchy problemi"
+
+#: hatanalizi.html:25
+msgid "Main formula"
+msgstr "Ana formül"
+
+#: hatanalizi.html:30
+msgid "Symbols"
+msgstr "Semboller"
+
+#: hatanalizi.html:32
+msgid "Symbol"
+msgstr "Sembol"
+
+#: hatanalizi.html:32
+msgid "Meaning"
+msgstr "Anlamı"
+
+#: nonsisalgo1.html:4
+msgid "Step size strategy for non-linear systems X' = AX + φ(t, X): local error bound and step formula, with a free online solver (pendulum, Lotka–Volterra, SIR)."
+msgstr "Lineer olmayan X' = AX + φ(t, X) sistemleri için adım uzunluğu stratejisi: yerel hata sınırı ve adım formülü, ücretsiz online çözücüyle (sarkaç, Lotka–Volterra, SIR)."
+
+#: picard.html:4
+msgid "Step size strategy for Euler's method based on Picard's theorem: the formula h_i = min{a, b/M_i}, explained, with a free online solver."
+msgstr "Euler yöntemi için Picard teoremine dayalı adım uzunluğu stratejisi: h_i = min{a, b/M_i} formülü, açıklaması ve ücretsiz online çözücü."
+
+#: pihata.html:4
+msgid "A step size strategy that combines Picard's theorem and error analysis for Cauchy problems whose solution is not known to exist. Formula and online solver."
+msgstr "Çözümünün varlığı bilinmeyen Cauchy problemleri için Picard teoremi ile hata analizini birleştiren adım uzunluğu stratejisi. Formül ve online çözücü."
+
+#: sisalgo1.html:4
+msgid "Step size strategy for linear systems X' = AX: local error bound and step formula, with a free online solver for 2×2 to 4×4 systems."
+msgstr "Lineer X' = AX sistemleri için adım uzunluğu stratejisi: yerel hata sınırı ve adım formülü; 2×2'den 4×4'e sistemler için ücretsiz online çözücüyle."
