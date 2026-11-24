@@ -245,6 +245,10 @@ class PageTests(TestCase):
         self.assertContains(self.client.get("/tr/about/"), "Adım Genişliği Stratejileri İçin Web Uygulaması")
         for event in ("ICMME-2017", "ICMME-2019", "ICMME-2021"):
             self.assertContains(response, event)
+        self.assertContains(response, "ali.osman.cibikdiken@karatay.edu.tr")
+        tr_about = self.client.get("/tr/about/")
+        self.assertContains(tr_about, "KTO Karatay Üniversitesi")
+        self.assertContains(tr_about, "Şu an: Doç. Dr., Necmettin Erbakan Üniversitesi")
 
     def test_css_and_js_carry_a_version(self):
         # Browsers must not keep an old site.css after an update.

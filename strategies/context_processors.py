@@ -54,13 +54,15 @@ TEAM = [
     {
         "name": "Gülnur ÇELİK KIZILKAN",
         "role": _("Assistant Professor (2017), Necmettin Erbakan University, Faculty of Science, Department of Mathematics and Computer Science, Konya"),
+        "current": _("Currently: Associate Professor, Necmettin Erbakan University, Konya"),
         "email": "gckizilkan@erbakan.edu.tr",
         "photo": "",
     },
     {
         "name": "Ali Osman ÇIBIKDİKEN",
         "role": _("Assistant Professor (2017), Necmettin Erbakan University, Faculty of Engineering and Architecture, Department of Computer Engineering, Konya"),
-        "email": "aocdiken@erbakan.edu.tr",
+        "current": _("Currently: Assistant Professor, KTO Karatay University, Konya"),
+        "email": "ali.osman.cibikdiken@karatay.edu.tr",
         "photo": "graphics/images/aliosman_cibikdiken.jpeg",
     },
 ]

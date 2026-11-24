@@ -175,9 +175,17 @@ msgstr "Yüksek lisans öğrencisi (2017), Necmettin Erbakan Üniversitesi, Fen 
 msgid "Assistant Professor (2017), Necmettin Erbakan University, Faculty of Science, Department of Mathematics and Computer Science, Konya"
 msgstr "Dr. Öğr. Üyesi (2017), Necmettin Erbakan Üniversitesi, Fen Fakültesi, Matematik-Bilgisayar Bölümü, Konya"
 
-#: context_processors.py:62
+#: context_processors.py:57
+msgid "Currently: Associate Professor, Necmettin Erbakan University, Konya"
+msgstr "Şu an: Doç. Dr., Necmettin Erbakan Üniversitesi, Konya"
+
+#: context_processors.py:63
 msgid "Assistant Professor (2017), Necmettin Erbakan University, Faculty of Engineering and Architecture, Department of Computer Engineering, Konya"
 msgstr "Dr. Öğr. Üyesi (2017), Necmettin Erbakan Üniversitesi, Mühendislik ve Mimarlık Fakültesi, Bilgisayar Mühendisliği Bölümü, Konya"
+
+#: context_processors.py:64
+msgid "Currently: Assistant Professor, KTO Karatay University, Konya"
+msgstr "Şu an: Dr. Öğr. Üyesi, KTO Karatay Üniversitesi, Konya"
 
 #: forms.py:90
 msgid "Length of the interval [t₀, t₀ + a]; also the half-width of the search rectangle in t."
@@ -635,15 +643,15 @@ msgstr "Makaleyi oku (PDF)"
 msgid "Team"
 msgstr "Ekip"
 
-#: about.html:78
+#: about.html:79
 msgid "Publications"
 msgstr "Yayınlar"
 
-#: about.html:89
+#: about.html:90
 msgid "Conferences"
 msgstr "Konferanslar"
 
-#: about.html:90
+#: about.html:91
 msgid "International Conference on Mathematics and Mathematics Education (ICMME)"
 msgstr "Uluslararası Matematik ve Matematik Eğitimi Konferansı (ICMME)"
 
